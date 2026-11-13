@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#103447">
+<meta name="description" content="Portal pelaporan K3 dan inspeksi APD SOPRA">
+<title>SOPRA | Safety Report HSE</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+ <aside class="sidebar">
+  <div class="brand"><div class="brandmark">✚</div><div><strong>SAFETY REPORT</strong><small>HSE · SOPRA</small></div></div>
+  <div class="side-caption">MENU UTAMA</div>
+  <nav aria-label="Navigasi utama">
+   <button class="nav-link active" data-page="home">⌂ <span>Beranda</span></button>
+   <button class="nav-link" data-page="report">▤ <span>Pelaporan K3</span></button>
+   <button class="nav-link" data-page="inspection">☑ <span>Inspeksi APD</span></button>
+   <button class="nav-link" data-page="dashboard">◉ <span>Dashboard HSE</span></button>
+  </nav>
+  <div class="sidebar-note"><span class="pulse"></span> Portal akses bersama<br><small>Tanpa akun atau login</small></div>
+ </aside>
+ <main class="main">
+  <header class="topbar"><div><div class="eyebrow">HSE MANAGEMENT SYSTEM</div><h1 id="page-title">Beranda</h1></div><span class="tag"><span class="pulse"></span> SOPRA · HSE PORTAL</span></header>
+  <section class="page" id="home">
+   <div class="hero"><div><span class="hero-label">KESELAMATAN KERJA</span><h2>Laporkan lebih mudah.<br>Lingkungan kerja lebih aman.</h2><p>Portal pelaporan kejadian K3, inspeksi APD, dan pemantauan statistik untuk seluruh area kerja SOPRA.</p><button class="hero-btn" data-goto="report">Buat Laporan <span>→</span></button></div><div class="hero-art" aria-hidden="true"><div class="hero-shield">✚</div><div class="hero-orbit"></div></div></div>
+   <div class="section-head"><h2>Layanan HSE</h2><p>Pilih aktivitas yang ingin dilakukan</p></div>
+   <div class="service-grid">
+    <button class="service-card" data-goto="report" data-category="Kecelakaan Kerja"><span class="service-icon red">✚</span><strong>Kecelakaan Kerja</strong><small>Laporkan insiden dan cedera kerja</small><span class="card-go">↗</span></button>
+    <button class="service-card" data-goto="report" data-category="Near Miss"><span class="service-icon amber">!</span><strong>Near Miss</strong><small>Catat kejadian hampir celaka</small><span class="card-go">↗</span></button>
+    <button class="service-card" data-goto="report" data-category="Unsafe Condition"><span class="service-icon blue">◇</span><strong>Unsafe Condition</strong><small>Temuan kondisi tidak aman</small><span class="card-go">↗</span></button>
+    <button class="service-card" data-goto="report" data-category="Unsafe Action"><span class="service-icon purple">♟</span><strong>Unsafe Action</strong><small>Temuan tindakan tidak aman</small><span class="card-go">↗</span></button>
+    <button class="service-card" data-goto="inspection"><span class="service-icon teal">☑</span><strong>Inspeksi APD & Area</strong><small>Pemeriksaan rutin penggunaan APD dan housekeeping</small><span class="card-go">↗</span></button>
+    <button class="service-card" data-goto="dashboard"><span class="service-icon slate">◉</span><strong>Dashboard HSE</strong><small>Ringkasan indikator dan data monitoring</small><span class="card-go">↗</span></button>
+   </div>
+   <div class="info"><strong>ℹ Informasi pengisian</strong><p>Formulir menggunakan Google Forms yang ditanam di website. Data yang terkirim akan tersimpan otomatis pada Google Sheets jika formulir telah dihubungkan oleh admin.</p></div>
+  </section>
+  <section class="page hidden" id="report"><div class="section-head"><h2>Pelaporan K3</h2><p>Pilih kategori laporan, lalu isi formulir yang tersedia</p></div>
+   <div class="panel"><div class="form-row"><label for="report-category">Kategori laporan</label><select id="report-category"><option>Kecelakaan Kerja</option><option>Near Miss</option><option>Unsafe Condition</option><option>Unsafe Action</option></select></div><div id="report-form-wrap" class="form-shell"></div></div>
+  </section>
+  <section class="page hidden" id="inspection"><div class="section-head"><h2>Inspeksi APD & Area Kerja</h2><p>Checklist pemeriksaan berkala untuk keselamatan dan kebersihan area</p></div><div class="inspection-overview"><div class="mini-feature"><span class="mini-icon">01</span><div><b>Identitas & Lokasi</b><small>Nama, NPK, departemen, area, tanggal</small></div></div><div class="mini-feature"><span class="mini-icon">02</span><div><b>Checklist Keselamatan</b><small>8 pemeriksaan APD dan housekeeping</small></div></div><div class="mini-feature"><span class="mini-icon">03</span><div><b>Catatan Temuan</b><small>Keterangan ketidaksesuaian dan tindak lanjut</small></div></div></div><div class="panel"><div class="panel-top"><h3>Formulir Inspeksi</h3><span class="soft-tag">8 item pemeriksaan</span></div><div class="checklist-preview" id="checklist-preview"></div><div class="checklist-note">Isi jawaban resmi pada formulir di bawah. Checklist di atas merupakan panduan pertanyaan, bukan tempat menyimpan data.</div><div id="inspection-form-wrap" class="form-shell"></div></div></section>
+  <section class="page hidden" id="dashboard"><div class="section-head dash-heading"><div><h2>Dashboard Keselamatan Kerja</h2><p>Ringkasan laporan dan hasil inspeksi HSE</p></div><button id="refresh-dashboard" class="outline-btn" type="button">↻ Perbarui data</button></div><div id="dashboard-notice" class="notice" aria-live="polite"></div><div class="kpis" id="kpis"></div><div class="dash-grid"><div class="panel"><h3>Komposisi Kategori Laporan</h3><div class="donut-container"><div class="donut" id="donut"><div class="donut-hole"><b id="donut-total">0</b><span>Total laporan</span></div></div><div id="legend" class="legend"></div></div></div><div class="panel"><h3>Laporan per Kategori</h3><div id="category-bars"></div></div></div><div class="panel"><div class="panel-top"><h3>Rekap per Departemen</h3><small id="dashboard-period"></small></div><div id="department-bars"></div></div><div class="info"><strong>Catatan privasi</strong><p>Dashboard publik ini hanya menampilkan data agregat. Jangan menampilkan nama pelapor, NPK, atau detail korban pada Google Sheets yang dipublikasikan.</p></div></section>
+  <footer>© 2026 SOPRA · Health, Safety & Environment <span>•</span> GitHub Pages</footer>
+ </main>
+</div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,73 +1,505 @@
 
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-  <meta charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-  <meta name="theme-color" content="#103447">
-
-  <meta
-    name="description"
-    content="Portal pelaporan K3 dan inspeksi APD SOPRA"
-  >
-
-  <title>SOPRA | Safety Report HSE</title>
-
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOPRA | Safety Report HSE</title>
+<style>
+:root {
+  --navy: #103447;
+  --navy-dark: #0b2838;
+  --teal: #078b80;
+  --bg: #f3f7fa;
+  --white: #fff;
+  --line: #dce6eb;
+  --text: #17394a;
+  --muted: #688090;
+  --red: #bb4044;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 "Segoe UI", Arial, sans-serif;
+}
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  min-height: 100vh;
+}
+.sidebar {
+  background: linear-gradient(160deg, #103447, #092a3a);
+  color: white;
+  padding: 28px 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 800;
+}
+.brand-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  background: #0f9b8d;
+  border-radius: 14px;
+  font-size: 25px;
+}
+.brand small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b9d0db;
+}
+.menu-label {
+  margin: 48px 15px 18px;
+  letter-spacing: 2px;
+  font-size: 10px;
+  color: #a4c0cb;
+}
+.nav {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 15px 17px;
+  margin-bottom: 5px;
+  border-radius: 13px;
+  text-align: left;
+  background: transparent;
+  color: #d5e5ec;
+  font-weight: 700;
+}
+.nav:hover, .nav.active {
+  color: white;
+  background: #ffffff25;
+}
+.sidebar-note {
+  position: absolute;
+  bottom: 25px;
+  left: 19px;
+  right: 19px;
+  padding: 15px;
+  border: 1px solid #486779;
+  border-radius: 13px;
+  font-size: 12px;
+}
+.sidebar-note small { color: #aac4cf; }
+.main {
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+  padding: 26px 34px 60px;
+  min-width: 0;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--teal);
+  font-weight: 800;
+}
+.topbar h1 { margin: 0; font-size: 26px; }
+.top-tag {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 8px 13px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.page[hidden] { display: none !important; }
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(120deg, #103447, #176077);
+  border-radius: 22px;
+  padding: 38px;
+  color: white;
+}
+.hero h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 15px 0;
+}
+.hero p { color: #d6e9ec; max-width: 600px; }
+.hero-symbol { font-size: 100px; color: #65dec6; }
+.heading { margin-bottom: 20px; }
+.heading h2 { margin: 0 0 5px; font-size: 22px; }
+.heading p { color: var(--muted); margin: 0; }
+.btn, .btn-danger {
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: white;
+  color: var(--text);
+  padding: 10px 15px;
+  font-weight: 700;
+}
+.btn:hover { border-color: var(--teal); }
+.btn.primary {
+  background: var(--teal);
+  color: white;
+  border-color: var(--teal);
+}
+.btn-danger {
+  background: #fff1ef;
+  border-color: #efd1cd;
+  color: #b43434;
+}
+.btn-row, .tools, .filters {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+.service {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 23px;
+  border-radius: 17px;
+  text-align: left;
+  min-height: 130px;
+}
+.service:hover {
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+.service-icon {
+  font-size: 27px;
+  color: var(--teal);
+}
+.service strong {
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 5px;
+}
+.service small { color: var(--muted); }
+.panel {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 23px;
+  margin-bottom: 18px;
+}
+.panel h3 { margin-top: 0; }
+.notice {
+  padding: 13px 16px;
+  border-radius: 12px;
+  background: #fff7df;
+  border: 1px solid #eadbb1;
+  color: #725d20;
+  margin-bottom: 20px;
+}
+.notice.info {
+  background: #e9f5f8;
+  border-color: #c0dfe6;
+  color: #245c6d;
+}
+.form-title {
+  font-size: 16px;
+  font-weight: 800;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin: 24px 0 15px;
+}
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.field-grid label {
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.field-grid .wide { grid-column: 1 / -1; }
+input:not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+select, textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #cbdae2;
+  border-radius: 11px;
+  padding: 11px 13px;
+  background: white;
+  color: var(--text);
+}
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid #60c4b5;
+}
+textarea { resize: vertical; }
+.check-card {
+  background: #f8fbfc;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+.check-title {
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.check-title span {
+  color: var(--teal);
+  margin-right: 12px;
+}
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 12px;
+}
+.choices label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+.check-note {
+  font-size: 12px;
+  font-weight: 700;
+}
+.check-note input { margin-top: 6px; }
+.progress {
+  float: right;
+  color: var(--teal);
+  font-size: 12px;
+}
+.photo-preview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 9px;
+}
+.photo-preview img {
+  width: 115px;
+  height: 90px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 20px 0;
+}
+.kpi {
+  background: white;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--teal);
+  border-radius: 14px;
+  padding: 18px;
+}
+.kpi small { color: var(--muted); }
+.kpi strong {
+  display: block;
+  font-size: 31px;
+}
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.donut-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.donut {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #eaf0f2;
+}
+.donut-hole {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  background: white;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+}
+.legend { flex: 1; min-width: 175px; }
+.legend div {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  gap: 10px;
+}
+.dot {
+  display: inline-block;
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+.bar { margin: 12px 0; }
+.bar-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.bar-track {
+  height: 9px;
+  border-radius: 20px;
+  background: #e9f0f3;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.bar-fill {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 20px;
+}
+.tools { margin: 15px 0 20px; }
+.tools button { font-size: 12px; }
+.filters { margin: 15px 0; }
+.filters input, .filters select { max-width: 260px; }
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+  font-size: 12px;
+}
+th, td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+}
+th { background: #f6fafb; color: var(--muted); }
+.pill {
+  border-radius: 30px;
+  padding: 4px 9px;
+  background: #e6f5f1;
+  color: #077c70;
+  font-weight: 700;
+}
+.mini {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: white;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 4px;
+}
+.mini.danger { color: var(--red); }
+.muted { color: var(--muted); }
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 25px;
+}
+@media (max-width: 950px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar {
+    height: auto;
+    position: static;
+    padding: 16px;
+  }
+  .sidebar nav {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+  }
+  .nav { width: auto; white-space: nowrap; }
+  .menu-label, .sidebar-note { display: none; }
+  .main { padding: 20px 15px; }
+  .dash-grid { grid-template-columns: 1fr; }
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .field-grid, .service-grid { grid-template-columns: 1fr; }
+  .field-grid .wide { grid-column: auto; }
+  .hero { padding: 24px; }
+  .hero h2 { font-size: 25px; }
+  .hero-symbol { display: none; }
+  .top-tag { display: none; }
+  .panel { padding: 16px; }
+}
+@media print {
+  .sidebar, .topbar, .tools, .filters, footer,
+  .notice, .btn, .mini { display: none !important; }
+  .layout { display: block; }
+  .main { padding: 0; }
+  .page { display: none !important; }
+  #print-page { display: block !important; }
+  .panel { border: 0; }
+  body { background: white; color: black; }
+}
+</style>
 </head>
 
 <body>
-
 <div class="layout">
 
-  <!-- SIDEBAR -->
   <aside class="sidebar">
-
     <div class="brand">
-      <div class="brandmark">✚</div>
-
+      <div class="brand-icon">✚</div>
       <div>
-        <strong>SAFETY REPORT</strong>
+        SAFETY REPORT
         <small>HSE · SOPRA</small>
       </div>
     </div>
 
-    <div class="side-caption">MENU UTAMA</div>
+    <div class="menu-label">MENU UTAMA</div>
 
-    <nav aria-label="Navigasi utama">
-
-      <button class="nav-link active" data-page="home">
-        ⌂ <span>Beranda</span>
+    <nav>
+      <button class="nav active" data-page="home">
+        ⌂ &nbsp; Beranda
       </button>
-
-      <button class="nav-link" data-page="report">
-        ▤ <span>Pelaporan K3</span>
+      <button class="nav" data-page="report">
+        ▤ &nbsp; Pelaporan K3
       </button>
-
-      <button class="nav-link" data-page="inspection">
-        ☑ <span>Inspeksi APD</span>
+      <button class="nav" data-page="inspection">
+        ☑ &nbsp; Inspeksi APD
       </button>
-
-      <button class="nav-link" data-page="dashboard">
-        ◉ <span>Dashboard HSE</span>
+      <button class="nav" data-page="dashboard">
+        ◉ &nbsp; Dashboard HSE
       </button>
-
     </nav>
 
     <div class="sidebar-note">
-      <span class="pulse"></span>
-      Portal akses bersama
+      ● Portal akses bersama
       <br>
       <small>Tanpa akun atau login</small>
     </div>
-
   </aside>
 
-  <!-- MAIN -->
   <main class="main">
 
     <header class="topbar">
@@ -75,177 +507,103 @@
         <div class="eyebrow">HSE MANAGEMENT SYSTEM</div>
         <h1 id="page-title">Beranda</h1>
       </div>
-
-      <span class="tag">
-        <span class="pulse"></span>
-        SOPRA · HSE PORTAL
-      </span>
+      <div class="top-tag">SOPRA · HSE PORTAL</div>
     </header>
+
+    <div class="notice">
+      <strong>Mode penyimpanan lokal:</strong>
+      Data tersimpan di browser perangkat ini saja.
+      Laporan dari perangkat karyawan lain belum
+      otomatis masuk ke dashboard.
+    </div>
 
     <!-- BERANDA -->
     <section class="page" id="home">
-
       <div class="hero">
-
         <div>
-          <span class="hero-label">KESELAMATAN KERJA</span>
-
+          <small>KESELAMATAN KERJA</small>
           <h2>
             Laporkan lebih mudah.
             <br>
             Lingkungan kerja lebih aman.
           </h2>
-
           <p>
             Portal pelaporan kejadian K3, inspeksi APD,
-            dan pemantauan statistik untuk seluruh area
-            kerja SOPRA.
+            dan monitoring keselamatan kerja SOPRA.
           </p>
-
-          <button class="hero-btn" data-goto="report">
-            Buat Laporan <span>→</span>
+          <button class="btn primary" data-go="report">
+            Buat Laporan →
           </button>
         </div>
-
-        <div class="hero-art" aria-hidden="true">
-          <div class="hero-shield">✚</div>
-          <div class="hero-orbit"></div>
-        </div>
-
-      </div>
-
-      <div class="section-head">
-        <h2>Layanan HSE</h2>
-        <p>Pilih aktivitas yang ingin dilakukan</p>
+        <div class="hero-symbol">✚</div>
       </div>
 
       <div class="service-grid">
-
-        <button
-          class="service-card"
-          data-goto="report"
-          data-category="Kecelakaan Kerja"
-        >
-          <span class="service-icon red">✚</span>
+        <button class="service" data-go="report"
+          data-category="Kecelakaan Kerja">
+          <span class="service-icon">✚</span>
           <strong>Kecelakaan Kerja</strong>
           <small>Laporkan insiden dan cedera kerja</small>
-          <span class="card-go">↗</span>
         </button>
 
-        <button
-          class="service-card"
-          data-goto="report"
-          data-category="Near Miss"
-        >
-          <span class="service-icon amber">!</span>
+        <button class="service" data-go="report"
+          data-category="Near Miss">
+          <span class="service-icon">⚠</span>
           <strong>Near Miss</strong>
-          <small>Catat kejadian hampir celaka</small>
-          <span class="card-go">↗</span>
+          <small>Kejadian hampir celaka</small>
         </button>
 
-        <button
-          class="service-card"
-          data-goto="report"
-          data-category="Unsafe Condition"
-        >
-          <span class="service-icon blue">◇</span>
+        <button class="service" data-go="report"
+          data-category="Unsafe Condition">
+          <span class="service-icon">◇</span>
           <strong>Unsafe Condition</strong>
-          <small>Temuan kondisi tidak aman</small>
-          <span class="card-go">↗</span>
+          <small>Kondisi tidak aman</small>
         </button>
 
-        <button
-          class="service-card"
-          data-goto="report"
-          data-category="Unsafe Action"
-        >
-          <span class="service-icon purple">♟</span>
+        <button class="service" data-go="report"
+          data-category="Unsafe Action">
+          <span class="service-icon">♟</span>
           <strong>Unsafe Action</strong>
-          <small>Temuan tindakan tidak aman</small>
-          <span class="card-go">↗</span>
+          <small>Tindakan tidak aman</small>
         </button>
 
-        <button
-          class="service-card"
-          data-goto="inspection"
-        >
-          <span class="service-icon teal">☑</span>
+        <button class="service" data-go="inspection">
+          <span class="service-icon">☑</span>
           <strong>Inspeksi APD & Area</strong>
-          <small>
-            Pemeriksaan penggunaan APD dan housekeeping
-          </small>
-          <span class="card-go">↗</span>
+          <small>8 checklist Ya / Tidak / N/A</small>
         </button>
 
-        <button
-          class="service-card"
-          data-goto="dashboard"
-        >
-          <span class="service-icon slate">◉</span>
+        <button class="service" data-go="dashboard">
+          <span class="service-icon">◉</span>
           <strong>Dashboard HSE</strong>
-          <small>Ringkasan indikator dan monitoring</small>
-          <span class="card-go">↗</span>
+          <small>Grafik dan pengelolaan data</small>
         </button>
-
       </div>
-
-      <div class="info">
-        <strong>ℹ Informasi pengisian</strong>
-        <p>
-          Isi laporan langsung di website ini.
-          Penyimpanan ke Google Sheets aktif setelah
-          backend penghubung dikonfigurasi.
-        </p>
-      </div>
-
     </section>
 
-    <!-- PELAPORAN K3 -->
-    <section class="page hidden" id="report">
-
-      <div class="section-head">
+    <!-- PELAPORAN -->
+    <section class="page" id="report" hidden>
+      <div class="heading">
         <h2>Pelaporan K3</h2>
-        <p>
-          Form laporan kejadian dan temuan keselamatan
-          kerja SOPRA
-        </p>
+        <p>Isi laporan kejadian langsung di website ini.</p>
       </div>
 
-      <form class="panel native-form" id="report-form">
+      <form id="report-form" class="panel">
+        <div class="form-title">Identitas Pelapor</div>
 
-        <div class="form-heading">Identitas Pelapor</div>
-
-        <div class="fields-grid">
-
+        <div class="field-grid">
           <label>
-            Nama pelapor *
-            <input
-              name="nama"
-              required
-              maxlength="120"
-              placeholder="Nama lengkap"
-            >
+            Nama Pelapor *
+            <input name="nama" required maxlength="120">
           </label>
-
           <label>
             NPK *
-            <input
-              name="npk"
-              required
-              maxlength="40"
-              placeholder="Nomor pokok karyawan"
-            >
+            <input name="npk" required maxlength="40">
           </label>
-
           <label>
             Jabatan
-            <input
-              name="jabatan"
-              maxlength="120"
-              placeholder="Jabatan"
-            >
+            <input name="jabatan" maxlength="120">
           </label>
-
           <label>
             Shift
             <select name="shift">
@@ -257,220 +615,110 @@
               <option>Long Shift</option>
             </select>
           </label>
-
           <label>
             Departemen *
-            <select
-              class="department"
-              name="departemen"
-              required
-            ></select>
+            <select name="departemen"
+              class="department" required></select>
           </label>
-
           <label>
-            Area kejadian *
-            <input
-              name="area"
-              maxlength="150"
-              required
-              placeholder="Contoh: Warehouse Plant 1"
-            >
+            Area Kejadian *
+            <input name="area" required maxlength="150">
           </label>
-
         </div>
 
-        <div class="form-heading">Detail Kejadian</div>
+        <div class="form-title">Detail Kejadian</div>
 
-        <div class="fields-grid">
-
+        <div class="field-grid">
           <label>
-            Kategori laporan *
-            <select
-              name="kategori"
-              id="report-category"
-              required
-            >
+            Kategori *
+            <select name="kategori" id="report-category">
               <option>Kecelakaan Kerja</option>
               <option>Near Miss</option>
               <option>Unsafe Condition</option>
               <option>Unsafe Action</option>
             </select>
           </label>
-
           <label>
-            Tanggal kejadian *
-            <input
-              name="tanggal"
-              type="date"
-              required
-            >
+            Tanggal Kejadian *
+            <input type="date" name="tanggal" required>
           </label>
-
           <label>
-            Waktu kejadian *
-            <input
-              name="waktu"
-              type="time"
-              required
-            >
+            Waktu Kejadian *
+            <input type="time" name="waktu" required>
           </label>
-
           <label>
-            Tingkat risiko *
+            Tingkat Risiko *
             <select name="risiko" required>
-              <option value="">Pilih tingkat risiko</option>
+              <option value="">Pilih risiko</option>
               <option>Rendah</option>
               <option>Sedang</option>
               <option>Tinggi</option>
               <option>Ekstrem</option>
             </select>
           </label>
-
-          <label class="accident-only">
-            Nama korban (jika ada)
-            <input
-              name="korban"
-              maxlength="120"
-              placeholder="Nama korban"
-            >
+          <label class="accident">
+            Nama Korban
+            <input name="korban" maxlength="120">
           </label>
-
-          <label class="accident-only">
-            Lost workdays / hari kerja hilang
-            <input
-              name="lostDays"
-              type="number"
-              min="0"
-              max="3650"
-              value="0"
-            >
+          <label class="accident">
+            Lost Workdays
+            <input type="number" name="lostDays" min="0" value="0">
           </label>
-
-          <label class="field-full">
-            Jenis bahaya / cedera *
-            <input
-              name="bahaya"
-              required
-              maxlength="250"
-              placeholder="Contoh: lantai licin"
-            >
+          <label class="wide">
+            Jenis Bahaya / Cedera *
+            <input name="bahaya" required maxlength="250">
           </label>
-
-          <label class="field-full">
-            Kronologi / uraian temuan *
-            <textarea
-              name="kronologi"
-              required
-              maxlength="3000"
-              rows="4"
-              placeholder="Jelaskan kejadian atau temuan"
-            ></textarea>
+          <label class="wide">
+            Kronologi / Uraian Temuan *
+            <textarea name="kronologi" required rows="4"></textarea>
           </label>
-
-          <label class="field-full">
-            Tindakan awal *
-            <textarea
-              name="tindakan"
-              required
-              maxlength="2000"
-              rows="3"
-              placeholder="Tindakan pengamanan atau perbaikan"
-            ></textarea>
+          <label class="wide">
+            Tindakan Awal *
+            <textarea name="tindakan" required rows="3"></textarea>
           </label>
-
-          <!-- FOTO PELAPORAN -->
-          <label class="field-full">
-            Foto bukti kejadian
-            (opsional, upload online belum aktif)
-
-            <input
-              id="report-photo"
-              type="file"
-              accept="image/jpeg,image/png,image/webp"
-            >
-
-            <span
-              id="report-photo-preview"
-              class="photo-preview"
-              aria-live="polite"
-            ></span>
+          <label class="wide">
+            Foto Bukti (opsional, maksimal 1 MB)
+            <input type="file" id="report-photo"
+              accept="image/jpeg,image/png,image/webp">
+            <span class="photo-preview" id="report-preview"></span>
           </label>
-
         </div>
 
-        <div class="form-actions">
-
-          <button type="submit" class="submit-btn">
-            Kirim Laporan K3
+        <div class="btn-row" style="margin-top:20px">
+          <button class="btn primary" id="report-submit" type="submit">
+            Simpan Laporan
           </button>
-
-          <button type="reset" class="outline-btn">
-            Bersihkan
-          </button>
-
+          <button class="btn" type="reset">Bersihkan</button>
         </div>
-
-        <div
-          class="submit-status"
-          id="report-status"
-          role="status"
-          aria-live="polite"
-        ></div>
-
+        <div id="report-status" role="status"></div>
       </form>
-
     </section>
 
-    <!-- INSPEKSI APD -->
-    <section class="page hidden" id="inspection">
-
-      <div class="section-head">
-
+    <!-- INSPEKSI -->
+    <section class="page" id="inspection" hidden>
+      <div class="heading">
         <h2>Inspeksi APD & Area Kerja</h2>
-
         <p>
-          Pemeriksaan penggunaan APD dan kondisi area
-          kerja, terdiri dari delapan checklist.
+          Pemeriksaan dengan jawaban Ya, Tidak, atau N/A.
         </p>
-
       </div>
 
-      <form
-        class="panel native-form"
-        id="inspection-form"
-      >
+      <form id="inspection-form" class="panel">
+        <div class="form-title">Identitas & Lokasi Inspeksi</div>
 
-        <div class="form-heading">
-          Identitas & Lokasi Inspeksi
-        </div>
-
-        <div class="fields-grid">
-
+        <div class="field-grid">
           <label>
-            Nama inspektor *
-            <input
-              name="nama"
-              required
-              maxlength="120"
-              placeholder="Nama lengkap"
-            >
+            Nama Inspektor *
+            <input name="nama" required maxlength="120">
           </label>
-
           <label>
             NPK *
-            <input
-              name="npk"
-              required
-              maxlength="40"
-              placeholder="Nomor pokok karyawan"
-            >
+            <input name="npk" required maxlength="40">
           </label>
-
           <label>
             Jabatan
             <input name="jabatan" maxlength="120">
           </label>
-
           <label>
             Shift
             <select name="shift">
@@ -482,228 +730,1165 @@
               <option>Long Shift</option>
             </select>
           </label>
-
           <label>
             Departemen *
-            <select
-              class="department"
-              name="departemen"
-              required
-            ></select>
+            <select name="departemen"
+              class="department" required></select>
           </label>
-
           <label>
-            Area inspeksi *
-            <input
-              name="area"
-              maxlength="150"
-              required
-            >
+            Area Inspeksi *
+            <input name="area" required maxlength="150">
           </label>
-
           <label>
-            Tanggal inspeksi *
-            <input
-              name="tanggal"
-              type="date"
-              required
-            >
+            Tanggal Inspeksi *
+            <input type="date" name="tanggal" required>
           </label>
-
           <label>
-            Jenis inspeksi
+            Jenis Inspeksi
             <select name="jenis">
-              <option>
-                Inspeksi APD & Housekeeping
-              </option>
+              <option>Inspeksi APD & Housekeeping</option>
               <option>Inspeksi Khusus</option>
             </select>
           </label>
-
         </div>
 
-        <!-- CHECKLIST -->
-        <div class="form-heading">
+        <div class="form-title">
           Checklist Inspeksi
-
-          <span
-            class="counter"
-            id="inspection-progress"
-          >
-            0 dari 8 terisi
-          </span>
+          <span class="progress" id="progress">0 dari 8 terisi</span>
         </div>
 
-        <!-- Dibuat otomatis melalui app.js -->
-        <div id="inspection-checks"></div>
+        <div id="checklist"></div>
 
-        <div class="fields-grid">
-
-          <label class="field-full">
-            Catatan umum / rekomendasi
-            <textarea
-              name="catatan"
-              maxlength="2000"
-              rows="3"
-              placeholder="Rangkuman temuan dan tindakan"
-            ></textarea>
+        <div class="field-grid">
+          <label class="wide">
+            Catatan Umum / Rekomendasi
+            <textarea name="catatan" rows="3"></textarea>
           </label>
-
-          <!-- FOTO INSPEKSI -->
-          <label class="field-full">
-            Foto pendukung inspeksi
-            (opsional, upload online belum aktif)
-
-            <input
-              id="inspection-photo"
-              type="file"
-              accept="image/jpeg,image/png,image/webp"
-            >
-
-            <span
-              id="inspection-photo-preview"
-              class="photo-preview"
-              aria-live="polite"
-            ></span>
+          <label class="wide">
+            Foto Pendukung Inspeksi
+            <input type="file" id="inspection-photo"
+              accept="image/jpeg,image/png,image/webp">
+            <span class="photo-preview" id="inspection-preview"></span>
           </label>
-
         </div>
 
-        <div class="form-actions">
-
-          <button type="submit" class="submit-btn">
-            Kirim Hasil Inspeksi
+        <div class="btn-row" style="margin-top:20px">
+          <button class="btn primary" id="inspection-submit"
+            type="submit">
+            Simpan Inspeksi
           </button>
-
-          <button type="reset" class="outline-btn">
-            Bersihkan
-          </button>
-
+          <button class="btn" type="reset">Bersihkan</button>
         </div>
-
-        <div
-          class="submit-status"
-          id="inspection-status"
-          role="status"
-          aria-live="polite"
-        ></div>
-
+        <div id="inspection-status" role="status"></div>
       </form>
-
     </section>
 
-    <!-- DASHBOARD HSE -->
-    <section class="page hidden" id="dashboard">
-
-      <div class="section-head dash-heading">
-
-        <div>
-          <h2>Dashboard Keselamatan Kerja</h2>
-          <p>
-            Ringkasan laporan dan hasil inspeksi HSE
-          </p>
-        </div>
-
-        <button
-          id="refresh-dashboard"
-          class="outline-btn"
-          type="button"
-        >
-          ↻ Perbarui data
-        </button>
-
+    <!-- DASHBOARD -->
+    <section class="page" id="dashboard" hidden>
+      <div class="heading">
+        <h2>Dashboard HSE & Pengelolaan Data</h2>
+        <p>
+          Grafik, ekspor Excel, backup, impor, edit,
+          dan hapus laporan.
+        </p>
       </div>
 
-      <div
-        id="dashboard-notice"
-        class="notice"
-        aria-live="polite"
-      ></div>
+      <div class="tools">
+        <button class="btn" id="csv">
+          ↓ Ekspor Excel (CSV)
+        </button>
+        <button class="btn" id="backup">
+          ↓ Backup JSON + PDF
+        </button>
+        <button class="btn" id="import-button">
+          ↑ Impor Backup
+        </button>
+        <input type="file" id="import-input"
+          accept=".json,application/json" hidden>
+        <button class="btn" id="clear-demo">
+          Hapus Data Contoh
+        </button>
+        <button class="btn" id="edit-selected">
+          ✎ Edit Data Dipilih
+        </button>
+        <button class="btn-danger" id="delete-selected">
+          Hapus Data Dipilih
+        </button>
+      </div>
+
+      <div class="notice info">
+        Ekspor CSV dapat dibuka di Excel.
+        Backup JSON digunakan untuk mencadangkan seluruh data
+        lokal. Tombol PDF membuka dialog cetak, lalu pilih
+        <strong>Save as PDF</strong>.
+      </div>
 
       <div class="kpis" id="kpis"></div>
 
       <div class="dash-grid">
-
         <div class="panel">
-
           <h3>Komposisi Kategori Laporan</h3>
-
-          <div class="donut-container">
-
+          <div class="donut-wrap">
             <div class="donut" id="donut">
-
-              <div class="donut-hole">
-                <b id="donut-total">0</b>
-                <span>Total laporan</span>
-              </div>
-
+              <div class="donut-hole" id="donut-count">0</div>
             </div>
-
-            <div id="legend" class="legend"></div>
-
+            <div class="legend" id="legend"></div>
           </div>
-
         </div>
 
         <div class="panel">
-
-          <h3>Laporan per Kategori</h3>
-
-          <div id="category-bars"></div>
-
+          <h3>Laporan per Departemen</h3>
+          <div id="dept-bars"></div>
         </div>
-
       </div>
 
       <div class="panel">
+        <h3>Daftar Laporan & Inspeksi</h3>
 
-        <div class="panel-top">
-
-          <h3>Rekap per Departemen</h3>
-
-          <small id="dashboard-period"></small>
-
+        <div class="filters">
+          <input id="filter-search"
+            placeholder="Cari nama, area, kategori...">
+          <select id="filter-category">
+            <option value="">Semua kategori</option>
+            <option>Kecelakaan Kerja</option>
+            <option>Near Miss</option>
+            <option>Unsafe Condition</option>
+            <option>Unsafe Action</option>
+            <option>Inspeksi APD</option>
+          </select>
         </div>
 
-        <div id="department-bars"></div>
-
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <input type="checkbox" id="select-all">
+                </th>
+                <th>Waktu Simpan</th>
+                <th>Kategori</th>
+                <th>Nama</th>
+                <th>Area</th>
+                <th>Departemen</th>
+                <th>Temuan</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="records"></tbody>
+          </table>
+        </div>
+        <p class="muted" id="record-count"></p>
       </div>
+    </section>
 
-      <div class="info">
-
-        <strong>Catatan privasi</strong>
-
+    <!-- CETAK PDF -->
+    <section class="page" id="print-page" hidden>
+      <div class="panel">
+        <h1>Ringkasan Safety Report HSE SOPRA</h1>
+        <p id="print-date"></p>
+        <div id="print-content"></div>
         <p>
-          Dashboard publik hanya menampilkan data
-          agregat. Nama pelapor, NPK, dan informasi
-          korban tidak boleh dipublikasikan.
+          Data bersumber dari penyimpanan lokal browser.
+          Bukan konsolidasi seluruh kantor.
         </p>
-
       </div>
-
     </section>
 
     <footer>
       © 2026 SOPRA · Health, Safety & Environment
-      <span>•</span>
-      GitHub Pages
     </footer>
 
   </main>
-
 </div>
 
-<!-- TARGET PENGIRIMAN BACKEND -->
-<iframe
-  id="submission-target"
-  name="submission-target"
-  title="Pengiriman data"
-  class="hidden"
-  aria-hidden="true"
-></iframe>
+<script>
+(() => {
+  "use strict";
 
-<script src="config.js"></script>
-<script src="app.js"></script>
+  const KEY = "sopra_hse_local_v3";
 
+  const DEPTS = [
+    "Warehouse", "HR", "GA", "HSE", "Visual",
+    "QC", "QA", "Produksi", "Maintenance",
+    "GO", "PPC", "Purchasing", "Logistik",
+    "Utility", "Management", "Lainnya"
+  ];
+
+  const CHECKS = [
+    ["APD-01", "Penggunaan APD sesuai risiko pekerjaan"],
+    ["APD-02", "Penggunaan safety shoes di area wajib"],
+    ["APD-03", "Penggunaan helm keselamatan di area wajib"],
+    ["APD-04", "Kondisi APD layak dan bersih"],
+    ["HK-01", "Area kerja terjaga kebersihannya"],
+    ["HK-02", "Material tersusun rapi dan aman"],
+    ["HK-03", "Jalur pejalan kaki, forklift, dan evakuasi bebas hambatan"],
+    ["HK-04", "Lantai tidak licin dan bebas tumpahan"]
+  ];
+
+  const CATS = [
+    "Kecelakaan Kerja",
+    "Near Miss",
+    "Unsafe Condition",
+    "Unsafe Action",
+    "Inspeksi APD"
+  ];
+
+  const COLORS = [
+    "#d65c63",
+    "#e8a24a",
+    "#448ace",
+    "#9472c9",
+    "#079586"
+  ];
+
+  const $ = id => document.getElementById(id);
+
+  const esc = value =>
+    String(value ?? "").replace(/[&<>"']/g, ch => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[ch]);
+
+  let data = [];
+  let editing = null;
+  let selected = new Set();
+
+  let photos = {
+    report: "",
+    inspection: ""
+  };
+
+  const today = () => {
+    const d = new Date();
+    const local = new Date(
+      d.getTime() - d.getTimezoneOffset() * 60000
+    );
+    return local.toISOString().slice(0, 10);
+  };
+
+  function load() {
+    try {
+      const stored = JSON.parse(
+        localStorage.getItem(KEY) || "[]"
+      );
+      data = Array.isArray(stored) ? stored : [];
+    } catch (error) {
+      data = [];
+    }
+  }
+
+  function save(next) {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(next));
+      data = next;
+      return true;
+    } catch (error) {
+      alert(
+        "Penyimpanan browser penuh atau tidak tersedia. " +
+        "Lakukan backup terlebih dahulu. " +
+        error.message
+      );
+      return false;
+    }
+  }
+
+  function makeId() {
+    return crypto.randomUUID
+      ? crypto.randomUUID()
+      : "HSE-" + Date.now() + "-" +
+        Math.random().toString(36).slice(2);
+  }
+
+  function init() {
+    document.querySelectorAll(".department")
+      .forEach(select => {
+        select.innerHTML =
+          '<option value="">Pilih departemen</option>' +
+          DEPTS.map(d =>
+            `<option value="${esc(d)}">${esc(d)}</option>`
+          ).join("");
+      });
+
+    document.querySelectorAll('input[type="date"]')
+      .forEach(el => el.value = today());
+
+    $("checklist").innerHTML = CHECKS.map(
+      ([code, question], i) => `
+        <div class="check-card">
+          <div class="check-title">
+            <span>${code}</span>
+            ${esc(question)} *
+          </div>
+
+          <div class="choices">
+            ${["Ya", "Tidak", "N/A"].map(answer => `
+              <label>
+                <input
+                  type="radio"
+                  name="c${i}"
+                  value="${answer}"
+                  required
+                >
+                ${answer}
+              </label>
+            `).join("")}
+          </div>
+
+          <label class="check-note">
+            Keterangan (wajib jika Tidak)
+            <input
+              name="n${i}"
+              maxlength="400"
+              placeholder="Temuan atau tindakan perbaikan"
+            >
+          </label>
+        </div>
+      `
+    ).join("");
+
+    load();
+    updateAccident();
+    updateProgress();
+    render();
+  }
+
+  // NAVIGASI
+  function show(page) {
+    document.querySelectorAll(".page").forEach(el => {
+      el.hidden = el.id !== page;
+    });
+
+    document.querySelectorAll(".nav").forEach(btn => {
+      btn.classList.toggle(
+        "active",
+        btn.dataset.page === page
+      );
+    });
+
+    const titles = {
+      home: "Beranda",
+      report: "Pelaporan K3",
+      inspection: "Inspeksi APD",
+      dashboard: "Dashboard HSE",
+      "print-page": "Ringkasan"
+    };
+
+    $("page-title").textContent = titles[page] || page;
+
+    if (page === "dashboard") render();
+
+    window.scrollTo(0, 0);
+  }
+
+  document.querySelectorAll("[data-page]")
+    .forEach(btn => {
+      btn.onclick = () => show(btn.dataset.page);
+    });
+
+  document.querySelectorAll("[data-go]")
+    .forEach(btn => {
+      btn.onclick = () => {
+        if (btn.dataset.category) {
+          $("report-category").value =
+            btn.dataset.category;
+        }
+
+        updateAccident();
+        show(btn.dataset.go);
+      };
+    });
+
+  // KONDISI FORM
+  function updateAccident() {
+    const active =
+      $("report-category").value === "Kecelakaan Kerja";
+
+    document.querySelectorAll(".accident")
+      .forEach(el => {
+        el.style.display = active ? "flex" : "none";
+      });
+  }
+
+  $("report-category").onchange = updateAccident;
+
+  function updateProgress() {
+    let total = 0;
+
+    CHECKS.forEach((_, i) => {
+      const answer = document.querySelector(
+        `input[name="c${i}"]:checked`
+      );
+      const note = document.querySelector(
+        `input[name="n${i}"]`
+      );
+
+      if (answer) total++;
+      note.required =
+        Boolean(answer && answer.value === "Tidak");
+    });
+
+    $("progress").textContent =
+      `${total} dari 8 terisi`;
+  }
+
+  $("inspection-form").addEventListener(
+    "change",
+    updateProgress
+  );
+
+  // FOTO LOKAL
+  async function previewPhoto(file, type, previewId) {
+    photos[type] = "";
+    const preview = $(previewId);
+    preview.replaceChildren();
+
+    if (!file) return;
+
+    const allowed = [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ];
+
+    if (!allowed.includes(file.type)) {
+      alert("Gunakan foto JPG, PNG, atau WebP.");
+      return;
+    }
+
+    if (file.size > 1024 * 1024) {
+      alert("Foto maksimal 1 MB.");
+      return;
+    }
+
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+    photos[type] = base64;
+
+    const img = document.createElement("img");
+    img.src = base64;
+    img.alt = "Pratinjau foto";
+    preview.appendChild(img);
+
+    const text = document.createElement("small");
+    text.textContent =
+      "Foto disimpan di browser ini, bukan online.";
+    preview.appendChild(text);
+  }
+
+  $("report-photo").onchange = e =>
+    previewPhoto(
+      e.target.files[0],
+      "report",
+      "report-preview"
+    ).catch(error => alert(error.message));
+
+  $("inspection-photo").onchange = e =>
+    previewPhoto(
+      e.target.files[0],
+      "inspection",
+      "inspection-preview"
+    ).catch(error => alert(error.message));
+
+  function formValues(form) {
+    return Object.fromEntries(
+      new FormData(form).entries()
+    );
+  }
+
+  function resetForm(type) {
+    const form = $(type + "-form");
+    form.reset();
+
+    photos[type] = "";
+    const previewId =
+      type === "report"
+        ? "report-preview"
+        : "inspection-preview";
+
+    $(previewId).replaceChildren();
+
+    form.querySelector('input[type="date"]').value =
+      today();
+
+    $(type + "-submit").textContent =
+      type === "report"
+        ? "Simpan Laporan"
+        : "Simpan Inspeksi";
+
+    $(type + "-status").textContent = "";
+    editing = null;
+
+    updateAccident();
+    updateProgress();
+  }
+
+  // SIMPAN LAPORAN DAN INSPEKSI
+  function storeRecord(type, form) {
+    if (!form.reportValidity()) return;
+
+    const obj = formValues(form);
+
+    if (type === "inspection") {
+      obj.checks = CHECKS.map(
+        ([code, question], i) => ({
+          code,
+          question,
+          result: obj["c" + i],
+          note: obj["n" + i] || ""
+        })
+      );
+
+      const invalid = obj.checks.find(
+        item =>
+          item.result === "Tidak" &&
+          !item.note.trim()
+      );
+
+      if (invalid) {
+        alert(
+          "Isi keterangan untuk " + invalid.code
+        );
+        return;
+      }
+
+      CHECKS.forEach((_, i) => {
+        delete obj["c" + i];
+        delete obj["n" + i];
+      });
+    }
+
+    const prior = editing
+      ? data.find(x => x.id === editing)
+      : null;
+
+    const record = {
+      ...obj,
+      id: editing || makeId(),
+      type,
+      category:
+        type === "report"
+          ? obj.kategori
+          : "Inspeksi APD",
+      createdAt:
+        prior?.createdAt ||
+        new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      photo:
+        photos[type] ||
+        prior?.photo ||
+        "",
+      demo: prior?.demo || false
+    };
+
+    const next = editing
+      ? data.map(x =>
+          x.id === editing ? record : x
+        )
+      : [record, ...data];
+
+    if (save(next)) {
+      resetForm(type);
+      alert(
+        "Data berhasil disimpan di browser ini. " +
+        "Belum masuk database bersama."
+      );
+      render();
+      show("dashboard");
+    }
+  }
+
+  $("report-form").onsubmit = event => {
+    event.preventDefault();
+    storeRecord("report", event.currentTarget);
+  };
+
+  $("inspection-form").onsubmit = event => {
+    event.preventDefault();
+    updateProgress();
+    storeRecord("inspection", event.currentTarget);
+  };
+
+  // FILTER DATA
+  function filtered() {
+    const q = $("filter-search")
+      .value.toLowerCase().trim();
+
+    const category =
+      $("filter-category").value;
+
+    return data.filter(item => {
+      const matchesCategory =
+        !category || item.category === category;
+
+      const searchable = [
+        item.nama,
+        item.npk,
+        item.area,
+        item.category,
+        item.departemen
+      ].join(" ").toLowerCase();
+
+      return matchesCategory &&
+        (!q || searchable.includes(q));
+    });
+  }
+
+  // DASHBOARD
+  function render() {
+    const counts = CATS.map(category =>
+      data.filter(x => x.category === category).length
+    );
+
+    const total = counts.reduce(
+      (a, b) => a + b,
+      0
+    );
+
+    const findings = data
+      .filter(x => x.type === "inspection")
+      .reduce((sum, record) =>
+        sum + (record.checks || [])
+          .filter(c => c.result === "Tidak").length,
+        0
+      );
+
+    const kpis = [
+      ["Total Data", total],
+      ["Laporan K3", total - counts[4]],
+      ["Inspeksi APD", counts[4]],
+      ["Temuan Inspeksi", findings]
+    ];
+
+    $("kpis").innerHTML = kpis.map(
+      ([name, number], i) => `
+        <div class="kpi"
+          style="border-top-color:${COLORS[i]}">
+          <small>${name}</small>
+          <strong>${number}</strong>
+        </div>
+      `
+    ).join("");
+
+    // DONUT
+    let position = 0;
+    const gradient = [];
+
+    counts.forEach((count, i) => {
+      const end = position +
+        (total ? count / total * 100 : 0);
+
+      if (end > position) {
+        gradient.push(
+          `${COLORS[i]} ${position}% ${end}%`
+        );
+      }
+
+      position = end;
+    });
+
+    $("donut").style.background = gradient.length
+      ? "conic-gradient(" +
+          gradient.join(",") + ")"
+      : "#eaf0f2";
+
+    $("donut-count").textContent = total;
+
+    $("legend").innerHTML = CATS.map(
+      (category, i) => `
+        <div>
+          <span>
+            <i class="dot"
+              style="background:${COLORS[i]}"></i>
+            ${esc(category)}
+          </span>
+          <b>${counts[i]}</b>
+        </div>
+      `
+    ).join("");
+
+    // DEPARTEMEN
+    const departments = {};
+
+    data.forEach(item => {
+      const d = item.departemen || "Lainnya";
+      departments[d] = (departments[d] || 0) + 1;
+    });
+
+    const max = Math.max(
+      1,
+      ...Object.values(departments)
+    );
+
+    $("dept-bars").innerHTML =
+      Object.entries(departments)
+        .sort((a, b) => b[1] - a[1])
+        .map(([name, count]) => `
+          <div class="bar">
+            <div class="bar-top">
+              <span>${esc(name)}</span>
+              <b>${count}</b>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill"
+                style="width:${count / max * 100}%">
+              </div>
+            </div>
+          </div>
+        `).join("") ||
+      '<p class="muted">Belum ada data.</p>';
+
+    renderRows();
+  }
+
+  function renderRows() {
+    const rows = filtered();
+
+    $("records").innerHTML = rows.map(item => {
+      const findings = item.type === "inspection"
+        ? (item.checks || [])
+          .filter(c => c.result === "Tidak").length
+        : "—";
+
+      return `
+        <tr>
+          <td>
+            <input type="checkbox"
+              data-select="${esc(item.id)}"
+              ${selected.has(item.id) ? "checked" : ""}>
+          </td>
+          <td>
+            ${esc(
+              new Date(item.createdAt)
+                .toLocaleString("id-ID")
+            )}
+          </td>
+          <td>
+            <span class="pill">
+              ${esc(item.category)}
+            </span>
+          </td>
+          <td>${esc(item.nama)}</td>
+          <td>${esc(item.area)}</td>
+          <td>${esc(item.departemen)}</td>
+          <td>${findings}</td>
+          <td>
+            <button class="mini"
+              data-edit="${esc(item.id)}">
+              Edit
+            </button>
+            <button class="mini danger"
+              data-delete="${esc(item.id)}">
+              Hapus
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join("") || `
+      <tr>
+        <td colspan="8">Belum ada data.</td>
+      </tr>
+    `;
+
+    $("record-count").textContent =
+      `${rows.length} data ditampilkan dari ` +
+      `${data.length} data lokal.`;
+
+    document.querySelectorAll("[data-select]")
+      .forEach(el => {
+        el.onchange = () => {
+          if (el.checked) {
+            selected.add(el.dataset.select);
+          } else {
+            selected.delete(el.dataset.select);
+          }
+        };
+      });
+
+    document.querySelectorAll("[data-edit]")
+      .forEach(btn => {
+        btn.onclick = () => edit(btn.dataset.edit);
+      });
+
+    document.querySelectorAll("[data-delete]")
+      .forEach(btn => {
+        btn.onclick = () =>
+          removeRecords([btn.dataset.delete]);
+      });
+  }
+
+  $("filter-search").oninput = renderRows;
+  $("filter-category").onchange = renderRows;
+
+  $("select-all").onchange = event => {
+    filtered().forEach(item => {
+      if (event.target.checked) {
+        selected.add(item.id);
+      } else {
+        selected.delete(item.id);
+      }
+    });
+    renderRows();
+  };
+
+  // EDIT DATA
+  function edit(key) {
+    const item = data.find(x => x.id === key);
+    if (!item) return;
+
+    const type = item.type;
+    const form = $(type + "-form");
+
+    form.reset();
+    editing = key;
+
+    photos[type] = "";
+
+    Object.entries(item).forEach(([key, value]) => {
+      if ([
+        "checks", "photo", "id", "createdAt",
+        "updatedAt", "category", "demo", "type"
+      ].includes(key)) return;
+
+      const field = form.elements.namedItem(key);
+
+      if (field && typeof value !== "object") {
+        field.value = value;
+      }
+    });
+
+    if (type === "inspection") {
+      (item.checks || []).forEach((check, i) => {
+        const radio = form.querySelector(
+          `input[name="c${i}"][value="${check.result}"]`
+        );
+        if (radio) radio.checked = true;
+
+        const note = form.elements.namedItem(
+          "n" + i
+        );
+        if (note) note.value = check.note || "";
+      });
+    } else {
+      form.elements.namedItem("kategori").value =
+        item.category;
+    }
+
+    photos[type] = item.photo || "";
+
+    const previewId = type === "report"
+      ? "report-preview"
+      : "inspection-preview";
+
+    const preview = $(previewId);
+    preview.replaceChildren();
+
+    if (item.photo) {
+      const img = document.createElement("img");
+      img.src = item.photo;
+      img.alt = "Foto tersimpan";
+      preview.appendChild(img);
+    }
+
+    $(type + "-submit").textContent =
+      "Simpan Perubahan";
+
+    updateAccident();
+    updateProgress();
+    show(type);
+  }
+
+  // HAPUS DATA
+  function removeRecords(ids) {
+    if (!ids.length) {
+      alert("Pilih data lebih dahulu.");
+      return;
+    }
+
+    if (!confirm(
+      `Hapus ${ids.length} data dari browser ini?`
+    )) return;
+
+    const idSet = new Set(ids);
+
+    if (save(data.filter(x => !idSet.has(x.id)))) {
+      ids.forEach(id => selected.delete(id));
+      render();
+    }
+  }
+
+  $("edit-selected").onclick = () => {
+    if (selected.size !== 1) {
+      alert("Pilih tepat satu data untuk diedit.");
+      return;
+    }
+
+    edit([...selected][0]);
+  };
+
+  $("delete-selected").onclick = () =>
+    removeRecords([...selected]);
+
+  $("clear-demo").onclick = () => {
+    const demo = data.filter(x => x.demo);
+
+    if (!demo.length) {
+      alert("Tidak ada data contoh.");
+      return;
+    }
+
+    removeRecords(demo.map(x => x.id));
+  };
+
+  // EKSPOR CSV
+  function csvSafe(value) {
+    let text = String(value ?? "");
+
+    // Mencegah nilai spreadsheet menjadi formula
+    if (/^[=+@\-\t\r]/.test(text)) {
+      text = "'" + text;
+    }
+
+    return '"' +
+      text.replace(/"/g, '""') + '"';
+  }
+
+  function download(filename, content, mime) {
+    const blob = new Blob(
+      [content],
+      { type: mime }
+    );
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = filename;
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => {
+      URL.revokeObjectURL(url);
+    }, 5000);
+  }
+
+  $("csv").onclick = () => {
+    if (!data.length) {
+      alert("Belum ada data yang bisa diekspor.");
+      return;
+    }
+
+    const columns = [
+      "id",
+      "createdAt",
+      "category",
+      "nama",
+      "npk",
+      "jabatan",
+      "shift",
+      "departemen",
+      "area",
+      "tanggal",
+      "waktu",
+      "risiko",
+      "korban",
+      "lostDays",
+      "bahaya",
+      "kronologi",
+      "tindakan",
+      "jenis",
+      "catatan",
+      "temuan",
+      "fotoTersimpan"
+    ];
+
+    CHECKS.forEach(([code]) => {
+      columns.push(
+        code + "_jawaban",
+        code + "_keterangan"
+      );
+    });
+
+    const lines = [
+      columns.map(csvSafe).join(",")
+    ];
+
+    data.forEach(item => {
+      const row = {
+        ...item,
+        temuan: (item.checks || [])
+          .filter(c => c.result === "Tidak").length,
+        fotoTersimpan: item.photo
+          ? "Ya (hanya di backup JSON)"
+          : "Tidak"
+      };
+
+      (item.checks || []).forEach(check => {
+        row[check.code + "_jawaban"] =
+          check.result;
+        row[check.code + "_keterangan"] =
+          check.note;
+      });
+
+      lines.push(
+        columns.map(col =>
+          csvSafe(row[col])
+        ).join(",")
+      );
+    });
+
+    download(
+      "SOPRA_HSE_" + today() + ".csv",
+      "\ufeff" + lines.join("\r\n"),
+      "text/csv;charset=utf-8"
+    );
+  };
+
+  // BACKUP JSON DAN CETAK PDF
+  $("backup").onclick = () => {
+    const backup = {
+      application: "SOPRA HSE",
+      version: 3,
+      exportedAt: new Date().toISOString(),
+      records: data
+    };
+
+    download(
+      "SOPRA_HSE_Backup_" + today() + ".json",
+      JSON.stringify(backup, null, 2),
+      "application/json"
+    );
+
+    $("print-date").textContent =
+      "Dicetak: " +
+      new Date().toLocaleString("id-ID");
+
+    $("print-content").innerHTML = `
+      <p>Total data: <strong>${data.length}</strong></p>
+
+      ${CATS.map(category => `
+        <p>
+          ${esc(category)}:
+          ${data.filter(
+            x => x.category === category
+          ).length}
+        </p>
+      `).join("")}
+
+      <h3>Rekap Ringkas</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tanggal</th>
+            <th>Kategori</th>
+            <th>Pelapor</th>
+            <th>Area</th>
+            <th>Departemen</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${data.map(item => `
+            <tr>
+              <td>${esc(item.tanggal)}</td>
+              <td>${esc(item.category)}</td>
+              <td>${esc(item.nama)}</td>
+              <td>${esc(item.area)}</td>
+              <td>${esc(item.departemen)}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+
+    show("print-page");
+    window.print();
+    show("dashboard");
+  };
+
+  // IMPOR BACKUP
+  $("import-button").onclick = () => {
+    $("import-input").click();
+  };
+
+  $("import-input").onchange = async event => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    try {
+      const obj = JSON.parse(await file.text());
+
+      if (
+        obj.application !== "SOPRA HSE" ||
+        !Array.isArray(obj.records)
+      ) {
+        throw new Error(
+          "Format backup tidak sesuai."
+        );
+      }
+
+      if (obj.records.length > 10000) {
+        throw new Error(
+          "Data terlalu banyak."
+        );
+      }
+
+      const valid = obj.records.filter(item =>
+        item &&
+        typeof item.id === "string" &&
+        ["report", "inspection"].includes(item.type) &&
+        CATS.includes(item.category) &&
+        typeof item.nama === "string" &&
+        typeof item.createdAt === "string"
+      );
+
+      if (valid.length !== obj.records.length) {
+        throw new Error(
+          "Ada data backup yang tidak valid."
+        );
+      }
+
+      if (!confirm(
+        `Impor ${valid.length} data? ` +
+        "Data dengan ID sama akan diperbarui."
+      )) return;
+
+      const map = new Map(
+        data.map(item => [item.id, item])
+      );
+
+      valid.forEach(item => {
+        map.set(item.id, item);
+      });
+
+      if (save([...map.values()])) {
+        selected.clear();
+        render();
+        alert(
+          "Backup berhasil diimpor ke browser ini."
+        );
+      }
+
+    } catch (error) {
+      alert(
+        "Gagal impor: " + error.message
+      );
+    } finally {
+      event.target.value = "";
+    }
+  };
+
+  init();
+})();
+</script>
 </body>
 </html>

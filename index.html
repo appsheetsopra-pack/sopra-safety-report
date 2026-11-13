@@ -1,91 +1,709 @@
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#103447">
-<meta name="description" content="Portal pelaporan K3 dan inspeksi APD SOPRA">
-<title>SOPRA | Safety Report HSE</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+  <meta name="theme-color" content="#103447">
+
+  <meta
+    name="description"
+    content="Portal pelaporan K3 dan inspeksi APD SOPRA"
+  >
+
+  <title>SOPRA | Safety Report HSE</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <div class="layout">
- <aside class="sidebar">
-  <div class="brand"><div class="brandmark">✚</div><div><strong>SAFETY REPORT</strong><small>HSE · SOPRA</small></div></div>
-  <div class="side-caption">MENU UTAMA</div>
-  <nav aria-label="Navigasi utama">
-   <button class="nav-link active" data-page="home">⌂ <span>Beranda</span></button>
-   <button class="nav-link" data-page="report">▤ <span>Pelaporan K3</span></button>
-   <button class="nav-link" data-page="inspection">☑ <span>Inspeksi APD</span></button>
-   <button class="nav-link" data-page="dashboard">◉ <span>Dashboard HSE</span></button>
-  </nav>
-  <div class="sidebar-note"><span class="pulse"></span> Portal akses bersama<br><small>Tanpa akun atau login</small></div>
- </aside>
- <main class="main">
-  <header class="topbar"><div><div class="eyebrow">HSE MANAGEMENT SYSTEM</div><h1 id="page-title">Beranda</h1></div><span class="tag"><span class="pulse"></span> SOPRA · HSE PORTAL</span></header>
-  <section class="page" id="home">
-   <div class="hero"><div><span class="hero-label">KESELAMATAN KERJA</span><h2>Laporkan lebih mudah.<br>Lingkungan kerja lebih aman.</h2><p>Portal pelaporan kejadian K3, inspeksi APD, dan pemantauan statistik untuk seluruh area kerja SOPRA.</p><button class="hero-btn" data-goto="report">Buat Laporan <span>→</span></button></div><div class="hero-art" aria-hidden="true"><div class="hero-shield">✚</div><div class="hero-orbit"></div></div></div>
-   <div class="section-head"><h2>Layanan HSE</h2><p>Pilih aktivitas yang ingin dilakukan</p></div>
-   <div class="service-grid">
-    <button class="service-card" data-goto="report" data-category="Kecelakaan Kerja"><span class="service-icon red">✚</span><strong>Kecelakaan Kerja</strong><small>Laporkan insiden dan cedera kerja</small><span class="card-go">↗</span></button>
-    <button class="service-card" data-goto="report" data-category="Near Miss"><span class="service-icon amber">!</span><strong>Near Miss</strong><small>Catat kejadian hampir celaka</small><span class="card-go">↗</span></button>
-    <button class="service-card" data-goto="report" data-category="Unsafe Condition"><span class="service-icon blue">◇</span><strong>Unsafe Condition</strong><small>Temuan kondisi tidak aman</small><span class="card-go">↗</span></button>
-    <button class="service-card" data-goto="report" data-category="Unsafe Action"><span class="service-icon purple">♟</span><strong>Unsafe Action</strong><small>Temuan tindakan tidak aman</small><span class="card-go">↗</span></button>
-    <button class="service-card" data-goto="inspection"><span class="service-icon teal">☑</span><strong>Inspeksi APD & Area</strong><small>Pemeriksaan rutin penggunaan APD dan housekeeping</small><span class="card-go">↗</span></button>
-    <button class="service-card" data-goto="dashboard"><span class="service-icon slate">◉</span><strong>Dashboard HSE</strong><small>Ringkasan indikator dan data monitoring</small><span class="card-go">↗</span></button>
-   </div>
-   <div class="info"><strong>ℹ Informasi pengisian</strong><p>Isi semua laporan langsung di website ini, tanpa pindah ke Google Forms. Penyimpanan ke Google Sheets aktif setelah admin memasang backend penghubung.</p></div>
-  </section>
-  <section class="page hidden" id="report"><div class="section-head"><h2>Pelaporan K3</h2><p>Isi kejadian langsung di portal SOPRA · seluruh data wajib diverifikasi sebelum dikirim</p></div>
-   <form class="panel native-form" id="report-form">
-    <div class="form-heading">Identitas Pelapor</div><div class="fields-grid">
-      <label>Nama pelapor *<input name="nama" required maxlength="120" placeholder="Nama lengkap"></label>
-      <label>NPK *<input name="npk" required maxlength="40" placeholder="Nomor pokok karyawan"></label>
-      <label>Jabatan<input name="jabatan" maxlength="120" placeholder="Jabatan"></label>
-      <label>Shift<select name="shift"><option value="">Pilih shift</option><option>Non Shift</option><option>Shift 1</option><option>Shift 2</option><option>Shift 3</option><option>Long Shift</option></select></label>
-      <label>Departemen *<select class="department" name="departemen" required></select></label>
-      <label>Area kejadian *<input name="area" maxlength="150" required placeholder="Contoh: Warehouse Plant 1"></label>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brandmark">✚</div>
+
+      <div>
+        <strong>SAFETY REPORT</strong>
+        <small>HSE · SOPRA</small>
+      </div>
     </div>
-    <div class="form-heading">Detail Kejadian</div><div class="fields-grid">
-      <label>Kategori laporan *<select name="kategori" id="report-category" required><option>Kecelakaan Kerja</option><option>Near Miss</option><option>Unsafe Condition</option><option>Unsafe Action</option></select></label>
-      <label>Tanggal kejadian *<input name="tanggal" type="date" required></label>
-      <label>Waktu kejadian *<input name="waktu" type="time" required></label>
-      <label>Tingkat risiko *<select name="risiko" required><option value="">Pilih tingkat risiko</option><option>Rendah</option><option>Sedang</option><option>Tinggi</option><option>Ekstrem</option></select></label>
-      <label class="accident-only">Nama korban (jika ada)<input name="korban" maxlength="120" placeholder="Nama korban"></label>
-      <label class="accident-only">Lost workdays / hari kerja hilang<input name="lostDays" type="number" min="0" max="3650" value="0"></label>
-      <label class="field-full">Jenis bahaya / cedera *<input name="bahaya" required maxlength="250" placeholder="Contoh: lantai licin, tidak menggunakan APD"></label>
-      <label class="field-full">Kronologi / uraian temuan *<textarea name="kronologi" required maxlength="3000" rows="4" placeholder="Jelaskan lokasi, kejadian, dan penyebab yang diketahui"></textarea></label>
-      <label class="field-full">Tindakan awal *<textarea name="tindakan" required maxlength="2000" rows="3" placeholder="Apa tindakan pengamanan atau perbaikan yang dilakukan?"></textarea></label>
-      <label class="field-full">Link bukti foto (opsional)<input name="foto" type="url" placeholder="https://...  (tautan foto yang telah diunggah)"></label>
-    </div><div class="form-actions"><button type="submit" class="submit-btn">Kirim Laporan K3</button><button type="reset" class="outline-btn">Bersihkan</button></div>
-    <div class="submit-status" id="report-status" role="status" aria-live="polite"></div>
-   </form>
-  </section>
-  <section class="page hidden" id="inspection"><div class="section-head"><h2>Inspeksi APD & Area Kerja</h2><p>Form inspeksi asli di website, bukan Google Forms · 8 pemeriksaan</p></div>
-   <form class="panel native-form" id="inspection-form">
-    <div class="form-heading">Identitas & Lokasi Inspeksi</div><div class="fields-grid">
-      <label>Nama inspektor *<input name="nama" required maxlength="120" placeholder="Nama lengkap"></label>
-      <label>NPK *<input name="npk" required maxlength="40" placeholder="Nomor pokok karyawan"></label>
-      <label>Jabatan<input name="jabatan" maxlength="120"></label>
-      <label>Shift<select name="shift"><option value="">Pilih shift</option><option>Non Shift</option><option>Shift 1</option><option>Shift 2</option><option>Shift 3</option><option>Long Shift</option></select></label>
-      <label>Departemen *<select class="department" name="departemen" required></select></label>
-      <label>Area inspeksi *<input name="area" maxlength="150" required></label>
-      <label>Tanggal inspeksi *<input name="tanggal" type="date" required></label>
-      <label>Jenis inspeksi<select name="jenis"><option>Inspeksi APD & Housekeeping</option><option>Inspeksi Khusus</option></select></label>
-    </div><div class="form-heading">Checklist Inspeksi <span class="counter" id="inspection-progress">0 dari 8 terisi</span></div>
-    <div id="inspection-checks"></div>
-    <div class="fields-grid"><label class="field-full">Catatan umum / rekomendasi<textarea name="catatan" maxlength="2000" rows="3" placeholder="Rangkuman temuan dan tindakan yang diperlukan"></textarea></label>
-    <label class="field-full">Link foto pendukung (opsional)<input name="foto" type="url" placeholder="https://..."></label></div>
-    <div class="form-actions"><button type="submit" class="submit-btn">Kirim Hasil Inspeksi</button><button type="reset" class="outline-btn">Bersihkan</button></div>
-    <div class="submit-status" id="inspection-status" role="status" aria-live="polite"></div>
-   </form>
-  </section>
-  <section class="page hidden" id="dashboard"><div class="section-head dash-heading"><div><h2>Dashboard Keselamatan Kerja</h2><p>Ringkasan laporan dan hasil inspeksi HSE</p></div><button id="refresh-dashboard" class="outline-btn" type="button">↻ Perbarui data</button></div><div id="dashboard-notice" class="notice" aria-live="polite"></div><div class="kpis" id="kpis"></div><div class="dash-grid"><div class="panel"><h3>Komposisi Kategori Laporan</h3><div class="donut-container"><div class="donut" id="donut"><div class="donut-hole"><b id="donut-total">0</b><span>Total laporan</span></div></div><div id="legend" class="legend"></div></div></div><div class="panel"><h3>Laporan per Kategori</h3><div id="category-bars"></div></div></div><div class="panel"><div class="panel-top"><h3>Rekap per Departemen</h3><small id="dashboard-period"></small></div><div id="department-bars"></div></div><div class="info"><strong>Catatan privasi</strong><p>Dashboard publik ini hanya menampilkan data agregat. Jangan menampilkan nama pelapor, NPK, atau detail korban pada Google Sheets yang dipublikasikan.</p></div></section>
-  <footer>© 2026 SOPRA · Health, Safety & Environment <span>•</span> GitHub Pages</footer>
- </main>
+
+    <div class="side-caption">MENU UTAMA</div>
+
+    <nav aria-label="Navigasi utama">
+
+      <button class="nav-link active" data-page="home">
+        ⌂ <span>Beranda</span>
+      </button>
+
+      <button class="nav-link" data-page="report">
+        ▤ <span>Pelaporan K3</span>
+      </button>
+
+      <button class="nav-link" data-page="inspection">
+        ☑ <span>Inspeksi APD</span>
+      </button>
+
+      <button class="nav-link" data-page="dashboard">
+        ◉ <span>Dashboard HSE</span>
+      </button>
+
+    </nav>
+
+    <div class="sidebar-note">
+      <span class="pulse"></span>
+      Portal akses bersama
+      <br>
+      <small>Tanpa akun atau login</small>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">HSE MANAGEMENT SYSTEM</div>
+        <h1 id="page-title">Beranda</h1>
+      </div>
+
+      <span class="tag">
+        <span class="pulse"></span>
+        SOPRA · HSE PORTAL
+      </span>
+    </header>
+
+    <!-- BERANDA -->
+    <section class="page" id="home">
+
+      <div class="hero">
+
+        <div>
+          <span class="hero-label">KESELAMATAN KERJA</span>
+
+          <h2>
+            Laporkan lebih mudah.
+            <br>
+            Lingkungan kerja lebih aman.
+          </h2>
+
+          <p>
+            Portal pelaporan kejadian K3, inspeksi APD,
+            dan pemantauan statistik untuk seluruh area
+            kerja SOPRA.
+          </p>
+
+          <button class="hero-btn" data-goto="report">
+            Buat Laporan <span>→</span>
+          </button>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-shield">✚</div>
+          <div class="hero-orbit"></div>
+        </div>
+
+      </div>
+
+      <div class="section-head">
+        <h2>Layanan HSE</h2>
+        <p>Pilih aktivitas yang ingin dilakukan</p>
+      </div>
+
+      <div class="service-grid">
+
+        <button
+          class="service-card"
+          data-goto="report"
+          data-category="Kecelakaan Kerja"
+        >
+          <span class="service-icon red">✚</span>
+          <strong>Kecelakaan Kerja</strong>
+          <small>Laporkan insiden dan cedera kerja</small>
+          <span class="card-go">↗</span>
+        </button>
+
+        <button
+          class="service-card"
+          data-goto="report"
+          data-category="Near Miss"
+        >
+          <span class="service-icon amber">!</span>
+          <strong>Near Miss</strong>
+          <small>Catat kejadian hampir celaka</small>
+          <span class="card-go">↗</span>
+        </button>
+
+        <button
+          class="service-card"
+          data-goto="report"
+          data-category="Unsafe Condition"
+        >
+          <span class="service-icon blue">◇</span>
+          <strong>Unsafe Condition</strong>
+          <small>Temuan kondisi tidak aman</small>
+          <span class="card-go">↗</span>
+        </button>
+
+        <button
+          class="service-card"
+          data-goto="report"
+          data-category="Unsafe Action"
+        >
+          <span class="service-icon purple">♟</span>
+          <strong>Unsafe Action</strong>
+          <small>Temuan tindakan tidak aman</small>
+          <span class="card-go">↗</span>
+        </button>
+
+        <button
+          class="service-card"
+          data-goto="inspection"
+        >
+          <span class="service-icon teal">☑</span>
+          <strong>Inspeksi APD & Area</strong>
+          <small>
+            Pemeriksaan penggunaan APD dan housekeeping
+          </small>
+          <span class="card-go">↗</span>
+        </button>
+
+        <button
+          class="service-card"
+          data-goto="dashboard"
+        >
+          <span class="service-icon slate">◉</span>
+          <strong>Dashboard HSE</strong>
+          <small>Ringkasan indikator dan monitoring</small>
+          <span class="card-go">↗</span>
+        </button>
+
+      </div>
+
+      <div class="info">
+        <strong>ℹ Informasi pengisian</strong>
+        <p>
+          Isi laporan langsung di website ini.
+          Penyimpanan ke Google Sheets aktif setelah
+          backend penghubung dikonfigurasi.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- PELAPORAN K3 -->
+    <section class="page hidden" id="report">
+
+      <div class="section-head">
+        <h2>Pelaporan K3</h2>
+        <p>
+          Form laporan kejadian dan temuan keselamatan
+          kerja SOPRA
+        </p>
+      </div>
+
+      <form class="panel native-form" id="report-form">
+
+        <div class="form-heading">Identitas Pelapor</div>
+
+        <div class="fields-grid">
+
+          <label>
+            Nama pelapor *
+            <input
+              name="nama"
+              required
+              maxlength="120"
+              placeholder="Nama lengkap"
+            >
+          </label>
+
+          <label>
+            NPK *
+            <input
+              name="npk"
+              required
+              maxlength="40"
+              placeholder="Nomor pokok karyawan"
+            >
+          </label>
+
+          <label>
+            Jabatan
+            <input
+              name="jabatan"
+              maxlength="120"
+              placeholder="Jabatan"
+            >
+          </label>
+
+          <label>
+            Shift
+            <select name="shift">
+              <option value="">Pilih shift</option>
+              <option>Non Shift</option>
+              <option>Shift 1</option>
+              <option>Shift 2</option>
+              <option>Shift 3</option>
+              <option>Long Shift</option>
+            </select>
+          </label>
+
+          <label>
+            Departemen *
+            <select
+              class="department"
+              name="departemen"
+              required
+            ></select>
+          </label>
+
+          <label>
+            Area kejadian *
+            <input
+              name="area"
+              maxlength="150"
+              required
+              placeholder="Contoh: Warehouse Plant 1"
+            >
+          </label>
+
+        </div>
+
+        <div class="form-heading">Detail Kejadian</div>
+
+        <div class="fields-grid">
+
+          <label>
+            Kategori laporan *
+            <select
+              name="kategori"
+              id="report-category"
+              required
+            >
+              <option>Kecelakaan Kerja</option>
+              <option>Near Miss</option>
+              <option>Unsafe Condition</option>
+              <option>Unsafe Action</option>
+            </select>
+          </label>
+
+          <label>
+            Tanggal kejadian *
+            <input
+              name="tanggal"
+              type="date"
+              required
+            >
+          </label>
+
+          <label>
+            Waktu kejadian *
+            <input
+              name="waktu"
+              type="time"
+              required
+            >
+          </label>
+
+          <label>
+            Tingkat risiko *
+            <select name="risiko" required>
+              <option value="">Pilih tingkat risiko</option>
+              <option>Rendah</option>
+              <option>Sedang</option>
+              <option>Tinggi</option>
+              <option>Ekstrem</option>
+            </select>
+          </label>
+
+          <label class="accident-only">
+            Nama korban (jika ada)
+            <input
+              name="korban"
+              maxlength="120"
+              placeholder="Nama korban"
+            >
+          </label>
+
+          <label class="accident-only">
+            Lost workdays / hari kerja hilang
+            <input
+              name="lostDays"
+              type="number"
+              min="0"
+              max="3650"
+              value="0"
+            >
+          </label>
+
+          <label class="field-full">
+            Jenis bahaya / cedera *
+            <input
+              name="bahaya"
+              required
+              maxlength="250"
+              placeholder="Contoh: lantai licin"
+            >
+          </label>
+
+          <label class="field-full">
+            Kronologi / uraian temuan *
+            <textarea
+              name="kronologi"
+              required
+              maxlength="3000"
+              rows="4"
+              placeholder="Jelaskan kejadian atau temuan"
+            ></textarea>
+          </label>
+
+          <label class="field-full">
+            Tindakan awal *
+            <textarea
+              name="tindakan"
+              required
+              maxlength="2000"
+              rows="3"
+              placeholder="Tindakan pengamanan atau perbaikan"
+            ></textarea>
+          </label>
+
+          <!-- FOTO PELAPORAN -->
+          <label class="field-full">
+            Foto bukti kejadian
+            (opsional, upload online belum aktif)
+
+            <input
+              id="report-photo"
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+            >
+
+            <span
+              id="report-photo-preview"
+              class="photo-preview"
+              aria-live="polite"
+            ></span>
+          </label>
+
+        </div>
+
+        <div class="form-actions">
+
+          <button type="submit" class="submit-btn">
+            Kirim Laporan K3
+          </button>
+
+          <button type="reset" class="outline-btn">
+            Bersihkan
+          </button>
+
+        </div>
+
+        <div
+          class="submit-status"
+          id="report-status"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+      </form>
+
+    </section>
+
+    <!-- INSPEKSI APD -->
+    <section class="page hidden" id="inspection">
+
+      <div class="section-head">
+
+        <h2>Inspeksi APD & Area Kerja</h2>
+
+        <p>
+          Pemeriksaan penggunaan APD dan kondisi area
+          kerja, terdiri dari delapan checklist.
+        </p>
+
+      </div>
+
+      <form
+        class="panel native-form"
+        id="inspection-form"
+      >
+
+        <div class="form-heading">
+          Identitas & Lokasi Inspeksi
+        </div>
+
+        <div class="fields-grid">
+
+          <label>
+            Nama inspektor *
+            <input
+              name="nama"
+              required
+              maxlength="120"
+              placeholder="Nama lengkap"
+            >
+          </label>
+
+          <label>
+            NPK *
+            <input
+              name="npk"
+              required
+              maxlength="40"
+              placeholder="Nomor pokok karyawan"
+            >
+          </label>
+
+          <label>
+            Jabatan
+            <input name="jabatan" maxlength="120">
+          </label>
+
+          <label>
+            Shift
+            <select name="shift">
+              <option value="">Pilih shift</option>
+              <option>Non Shift</option>
+              <option>Shift 1</option>
+              <option>Shift 2</option>
+              <option>Shift 3</option>
+              <option>Long Shift</option>
+            </select>
+          </label>
+
+          <label>
+            Departemen *
+            <select
+              class="department"
+              name="departemen"
+              required
+            ></select>
+          </label>
+
+          <label>
+            Area inspeksi *
+            <input
+              name="area"
+              maxlength="150"
+              required
+            >
+          </label>
+
+          <label>
+            Tanggal inspeksi *
+            <input
+              name="tanggal"
+              type="date"
+              required
+            >
+          </label>
+
+          <label>
+            Jenis inspeksi
+            <select name="jenis">
+              <option>
+                Inspeksi APD & Housekeeping
+              </option>
+              <option>Inspeksi Khusus</option>
+            </select>
+          </label>
+
+        </div>
+
+        <!-- CHECKLIST -->
+        <div class="form-heading">
+          Checklist Inspeksi
+
+          <span
+            class="counter"
+            id="inspection-progress"
+          >
+            0 dari 8 terisi
+          </span>
+        </div>
+
+        <!-- Dibuat otomatis melalui app.js -->
+        <div id="inspection-checks"></div>
+
+        <div class="fields-grid">
+
+          <label class="field-full">
+            Catatan umum / rekomendasi
+            <textarea
+              name="catatan"
+              maxlength="2000"
+              rows="3"
+              placeholder="Rangkuman temuan dan tindakan"
+            ></textarea>
+          </label>
+
+          <!-- FOTO INSPEKSI -->
+          <label class="field-full">
+            Foto pendukung inspeksi
+            (opsional, upload online belum aktif)
+
+            <input
+              id="inspection-photo"
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+            >
+
+            <span
+              id="inspection-photo-preview"
+              class="photo-preview"
+              aria-live="polite"
+            ></span>
+          </label>
+
+        </div>
+
+        <div class="form-actions">
+
+          <button type="submit" class="submit-btn">
+            Kirim Hasil Inspeksi
+          </button>
+
+          <button type="reset" class="outline-btn">
+            Bersihkan
+          </button>
+
+        </div>
+
+        <div
+          class="submit-status"
+          id="inspection-status"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+      </form>
+
+    </section>
+
+    <!-- DASHBOARD HSE -->
+    <section class="page hidden" id="dashboard">
+
+      <div class="section-head dash-heading">
+
+        <div>
+          <h2>Dashboard Keselamatan Kerja</h2>
+          <p>
+            Ringkasan laporan dan hasil inspeksi HSE
+          </p>
+        </div>
+
+        <button
+          id="refresh-dashboard"
+          class="outline-btn"
+          type="button"
+        >
+          ↻ Perbarui data
+        </button>
+
+      </div>
+
+      <div
+        id="dashboard-notice"
+        class="notice"
+        aria-live="polite"
+      ></div>
+
+      <div class="kpis" id="kpis"></div>
+
+      <div class="dash-grid">
+
+        <div class="panel">
+
+          <h3>Komposisi Kategori Laporan</h3>
+
+          <div class="donut-container">
+
+            <div class="donut" id="donut">
+
+              <div class="donut-hole">
+                <b id="donut-total">0</b>
+                <span>Total laporan</span>
+              </div>
+
+            </div>
+
+            <div id="legend" class="legend"></div>
+
+          </div>
+
+        </div>
+
+        <div class="panel">
+
+          <h3>Laporan per Kategori</h3>
+
+          <div id="category-bars"></div>
+
+        </div>
+
+      </div>
+
+      <div class="panel">
+
+        <div class="panel-top">
+
+          <h3>Rekap per Departemen</h3>
+
+          <small id="dashboard-period"></small>
+
+        </div>
+
+        <div id="department-bars"></div>
+
+      </div>
+
+      <div class="info">
+
+        <strong>Catatan privasi</strong>
+
+        <p>
+          Dashboard publik hanya menampilkan data
+          agregat. Nama pelapor, NPK, dan informasi
+          korban tidak boleh dipublikasikan.
+        </p>
+
+      </div>
+
+    </section>
+
+    <footer>
+      © 2026 SOPRA · Health, Safety & Environment
+      <span>•</span>
+      GitHub Pages
+    </footer>
+
+  </main>
+
 </div>
-<iframe id="submission-target" name="submission-target" title="Pengiriman data" class="hidden" aria-hidden="true"></iframe>
+
+<!-- TARGET PENGIRIMAN BACKEND -->
+<iframe
+  id="submission-target"
+  name="submission-target"
+  title="Pengiriman data"
+  class="hidden"
+  aria-hidden="true"
+></iframe>
+
 <script src="config.js"></script>
 <script src="app.js"></script>
+
 </body>
 </html>

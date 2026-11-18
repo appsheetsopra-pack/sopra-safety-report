@@ -4,16 +4,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102b3f">
 <title>SAFETY REPORT SOPRA | HSEGA 2026</title>
 <meta name="description" content="Sistem Pelaporan K3 dan Inspeksi Area Kerja PT Solusi Prima Packaging">
+
 <style>
-:root{
+:root {
   --navy:#102b3f;
   --navy2:#173d53;
   --teal:#087c83;
   --light:#e9f5f5;
   --bg:#f3f6fa;
-  --white:#fff;
+  --white:#ffffff;
   --text:#263746;
   --muted:#728391;
   --border:#dce5eb;
@@ -21,8 +23,10 @@
   --green:#16834e;
   --yellow:#b8790d;
 }
-*{box-sizing:border-box}
-body{
+
+* { box-sizing:border-box; }
+
+body {
   margin:0;
   background:var(--bg);
   color:var(--text);
@@ -30,42 +34,60 @@ body{
   font-size:14px;
   line-height:1.5;
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-[hidden]{display:none!important}
-.layout{
+
+button,input,select,textarea { font:inherit; }
+button { cursor:pointer; }
+[hidden] { display:none!important; }
+
+.layout {
   display:grid;
   grid-template-columns:260px minmax(0,1fr);
   min-height:100vh;
 }
-.sidebar{
+
+.sidebar {
   background:linear-gradient(165deg,var(--navy2),#0b2032);
   color:#fff;
   padding:24px 15px;
 }
-.brand{
+
+.brand {
   display:flex;
   align-items:center;
   gap:12px;
   padding:4px 4px 22px;
   border-bottom:1px solid #ffffff26;
 }
-.brand-icon{
+
+.brand-icon {
   background:#ffffff18;
-  width:49px;height:49px;
+  width:49px;
+  height:49px;
   border-radius:13px;
-  display:grid;place-items:center;
+  display:grid;
+  place-items:center;
   font-size:25px;
 }
-.brand strong{display:block;font-size:18px}
-.brand small{display:block;color:#b9d2dc;font-size:11px}
-.nav-caption{
+
+.brand strong {
+  display:block;
+  font-size:18px;
+}
+
+.brand small {
+  display:block;
+  color:#b9d2dc;
+  font-size:11px;
+}
+
+.nav-caption {
   margin:28px 12px 12px;
   font-size:11px;
   letter-spacing:1.5px;
   color:#91b6c6;
 }
-.nav{
+
+.nav {
   display:block;
   width:100%;
   margin-bottom:7px;
@@ -77,22 +99,29 @@ button{cursor:pointer}
   background:transparent;
   font-weight:bold;
 }
-.nav:hover,.nav.active{background:#ffffff20;color:#fff}
-.side-note{
+
+.nav:hover,.nav.active {
+  background:#ffffff20;
+  color:#fff;
+}
+
+.side-note {
   color:#adc8d3;
   font-size:11px;
   padding:20px 12px;
   margin-top:25px;
   border-top:1px solid #ffffff24;
 }
-.main{
+
+.main {
   padding:25px 30px 45px;
   max-width:1550px;
   width:100%;
   margin:auto;
   min-width:0;
 }
-.hero{
+
+.hero {
   background:linear-gradient(110deg,#123950,#087c83);
   border-radius:19px;
   padding:28px;
@@ -101,7 +130,8 @@ button{cursor:pointer}
   position:relative;
   overflow:hidden;
 }
-.hero:after{
+
+.hero:after {
   content:"";
   position:absolute;
   right:-55px;
@@ -111,15 +141,25 @@ button{cursor:pointer}
   border:28px solid #ffffff10;
   border-radius:50%;
 }
-.hero small{
+
+.hero small {
   font-size:11px;
   letter-spacing:1.8px;
   font-weight:bold;
   color:#c7edf0;
 }
-.hero h1{margin:8px 0;font-size:27px}
-.hero p{margin:0;color:#d8f4f5}
-.notice{
+
+.hero h1 {
+  margin:8px 0;
+  font-size:27px;
+}
+
+.hero p {
+  margin:0;
+  color:#d8f4f5;
+}
+
+.notice {
   padding:12px 15px;
   background:#fff9e8;
   border:1px solid #eadbb8;
@@ -127,7 +167,8 @@ button{cursor:pointer}
   border-radius:11px;
   margin-bottom:18px;
 }
-.panel{
+
+.panel {
   background:#fff;
   border:1px solid var(--border);
   border-radius:16px;
@@ -135,22 +176,29 @@ button{cursor:pointer}
   margin-bottom:18px;
   box-shadow:0 5px 18px #102b3f06;
 }
-.panel h2,.panel h3{margin-top:0}
-.panel h2{font-size:19px}
-.grid{
+
+.panel h2,.panel h3 { margin-top:0; }
+.panel h2 { font-size:19px; }
+
+.grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:15px;
 }
-.field{
+
+.field {
   display:flex;
   flex-direction:column;
   gap:6px;
   font-weight:600;
   font-size:13px;
 }
-.field.full{grid-column:1/-1}
-.field input,.field select,.field textarea{
+
+.field.full { grid-column:1/-1; }
+
+.field input,
+.field select,
+.field textarea {
   width:100%;
   padding:11px 12px;
   border-radius:9px;
@@ -158,20 +206,33 @@ button{cursor:pointer}
   border:1px solid #cbd7df;
   color:var(--text);
 }
-.field textarea{resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{
+
+.field textarea { resize:vertical; }
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
   outline:2px solid #7cc9cd;
   border-color:var(--teal);
 }
-.section-heading{
-  color:var(--navy);
-  font-size:15px;
-  font-weight:800;
-  border-bottom:1px solid var(--border);
-  padding-bottom:10px;
-  margin:24px 0 15px;
+
+.field input:disabled {
+  background:#eef1f4;
+  color:#697c88;
 }
-.btn{
+
+.section-heading {
+  color:var(--navy);
+  font-size:16px;
+  font-weight:800;
+  border-bottom:2px solid var(--light);
+  padding-bottom:11px;
+  margin:28px 0 18px;
+}
+
+.section-heading:first-child { margin-top:5px; }
+
+.btn {
   background:white;
   border:1px solid #ccdae2;
   color:var(--navy);
@@ -179,45 +240,54 @@ button{cursor:pointer}
   padding:10px 14px;
   font-weight:bold;
 }
-.btn.primary{
+
+.btn.primary {
   background:var(--teal);
   border-color:var(--teal);
   color:white;
 }
-.btn.danger{color:var(--red)}
-.btn:hover{filter:brightness(.95)}
-.toolbar{
+
+.btn.danger { color:var(--red); }
+.btn:hover { filter:brightness(.95); }
+
+.toolbar {
   display:flex;
   flex-wrap:wrap;
   gap:9px;
   margin-top:16px;
   margin-bottom:12px;
 }
-.metrics{
+
+.metrics {
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:14px;
   margin-bottom:20px;
 }
-.metric{
+
+.metric {
   padding:20px;
   background:#fff;
   border-radius:14px;
   border:1px solid var(--border);
   border-top:4px solid var(--teal);
 }
-.metric small{color:var(--muted)}
-.metric strong{
+
+.metric small { color:var(--muted); }
+
+.metric strong {
   display:block;
   font-size:32px;
   margin-top:7px;
 }
-.quick{
+
+.quick {
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:13px;
 }
-.quick button{
+
+.quick button {
   text-align:left;
   border-radius:12px;
   border:1px solid var(--border);
@@ -226,66 +296,85 @@ button{cursor:pointer}
   color:var(--navy);
   font-weight:bold;
 }
-.quick button:hover{border-color:var(--teal)}
-.quick span{
+
+.quick button:hover { border-color:var(--teal); }
+
+.quick span {
   display:block;
   font-size:26px;
   color:var(--teal);
   margin-bottom:10px;
 }
-.question{
+
+.question {
   border:1px solid var(--border);
   background:#fbfdfd;
   padding:16px;
   border-radius:12px;
   margin-bottom:12px;
 }
-.question b{display:block;margin-bottom:10px}
-.question .meta{
+
+.question b {
+  display:block;
+  margin-bottom:10px;
+}
+
+.question .meta {
   color:var(--teal);
   font-size:11px;
   font-weight:bold;
   text-transform:uppercase;
   margin-bottom:5px;
 }
-.choices{
+
+.choices {
   display:flex;
   flex-wrap:wrap;
   gap:18px;
   margin-bottom:10px;
 }
-.choices label{
+
+.choices label {
   display:flex;
   align-items:center;
   gap:6px;
   cursor:pointer;
 }
-input[type=radio],input[type=checkbox]{accent-color:var(--teal)}
-.question .note{
+
+input[type=radio],
+input[type=checkbox] {
+  accent-color:var(--teal);
+}
+
+.question .note {
   width:100%;
   padding:10px;
   border:1px solid #cbd7df;
   border-radius:9px;
 }
-.question.fail{
+
+.question.fail {
   border-color:#df999d;
   background:#fffafa;
 }
-.photo-section{
+
+.photo-section {
   border:1px dashed #89b8bc;
   background:#f5fbfb;
   border-radius:12px;
   padding:17px;
   margin-top:20px;
 }
-.photo-preview{
+
+.photo-preview {
   display:block;
   max-width:220px;
   max-height:160px;
   margin-top:12px;
   border-radius:9px;
 }
-.progress{
+
+.progress {
   padding:12px 15px;
   margin:16px 0;
   border-radius:10px;
@@ -293,7 +382,8 @@ input[type=radio],input[type=checkbox]{accent-color:var(--teal)}
   font-weight:bold;
   color:#086d74;
 }
-.badge{
+
+.badge {
   display:inline-block;
   padding:5px 9px;
   background:#eaf2f6;
@@ -301,67 +391,112 @@ input[type=radio],input[type=checkbox]{accent-color:var(--teal)}
   font-weight:bold;
   font-size:11px;
 }
-.badge.bad{background:#ffe5e7;color:#a82c35}
-.badge.good{background:#def5e6;color:#127545}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th,td{
+
+.badge.bad {
+  background:#ffe5e7;
+  color:#a82c35;
+}
+
+.badge.good {
+  background:#def5e6;
+  color:#127545;
+}
+
+.table-wrap { overflow-x:auto; }
+
+table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+
+th,td {
   border-bottom:1px solid var(--border);
   padding:11px;
   text-align:left;
   vertical-align:top;
 }
-th{background:#f4f8fa;white-space:nowrap}
-.action{
+
+th {
+  background:#f4f8fa;
+  white-space:nowrap;
+}
+
+.action {
   padding:6px 9px;
   border:1px solid var(--border);
   border-radius:7px;
   background:#fff;
   margin:2px;
 }
-.action.danger{color:var(--red)}
-.muted{color:var(--muted)}
-.empty{
+
+.action.danger { color:var(--red); }
+
+.muted { color:var(--muted); }
+
+.empty {
   text-align:center;
   padding:25px;
   color:var(--muted);
 }
-.footer{
+
+.helper {
+  color:var(--muted);
+  font-size:12px;
+  font-weight:normal;
+}
+
+.footer {
   color:var(--muted);
   font-size:11px;
   text-align:center;
   padding-top:15px;
 }
-@media(max-width:1000px){
-  .layout{grid-template-columns:1fr}
-  .sidebar{padding:15px}
-  .sidebar nav{display:flex;gap:5px;overflow-x:auto}
-  .nav{white-space:nowrap;width:auto;flex:none}
-  .nav-caption,.side-note{display:none}
-  .brand{padding-bottom:12px}
-  .metrics{grid-template-columns:repeat(2,1fr)}
+
+@media(max-width:1000px) {
+  .layout { grid-template-columns:1fr; }
+  .sidebar { padding:15px; }
+  .sidebar nav {
+    display:flex;
+    gap:5px;
+    overflow-x:auto;
+  }
+  .nav {
+    white-space:nowrap;
+    width:auto;
+    flex:none;
+  }
+  .nav-caption,.side-note { display:none; }
+  .brand { padding-bottom:12px; }
+  .metrics { grid-template-columns:repeat(2,1fr); }
 }
-@media(max-width:650px){
-  .main{padding:15px}
-  .hero{padding:22px}
-  .hero h1{font-size:23px}
-  .grid,.quick{grid-template-columns:1fr}
-  .metrics{grid-template-columns:repeat(2,1fr)}
-  .panel{padding:16px}
-  .field.full{grid-column:auto}
+
+@media(max-width:650px) {
+  .main { padding:15px; }
+  .hero { padding:22px; }
+  .hero h1 { font-size:23px; }
+  .grid,.quick { grid-template-columns:1fr; }
+  .metrics { grid-template-columns:repeat(2,1fr); }
+  .panel { padding:16px; }
+  .field.full { grid-column:auto; }
 }
-@media print{
-  .sidebar,.toolbar,.notice,.btn,.action,.quick{display:none!important}
-  .layout{display:block}
-  .main{padding:0}
-  .page{display:none!important}
-  #dashboard{display:block!important}
+
+@media print {
+  .sidebar,.toolbar,.notice,.btn,.action,.quick {
+    display:none!important;
+  }
+  .layout { display:block; }
+  .main { padding:0; }
+  .page { display:none!important; }
+  #dashboard { display:block!important; }
 }
 </style>
 </head>
 
 <body>
 <div class="layout">
+
+<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="brand">
     <div class="brand-icon">✚</div>
@@ -373,6 +508,7 @@ th{background:#f4f8fa;white-space:nowrap}
   </div>
 
   <div class="nav-caption">MENU UTAMA</div>
+
   <nav>
     <button class="nav active" data-page="home">
       ⌂ &nbsp; Dashboard
@@ -394,7 +530,9 @@ th{background:#f4f8fa;white-space:nowrap}
   </div>
 </aside>
 
+<!-- KONTEN -->
 <main class="main">
+
 <header class="hero">
   <small>HSEGA / SOPRA / 2026</small>
   <h1 id="page-title">Dashboard Safety Report</h1>
@@ -404,25 +542,29 @@ th{background:#f4f8fa;white-space:nowrap}
 </header>
 
 <div class="notice">
-  Data versi ini tersimpan pada browser perangkat masing-masing.
-  Belum otomatis tersinkron antarperangkat.
+  Data disimpan pada browser perangkat ini.
+  Data belum otomatis tersinkron antarperangkat.
+  Lakukan backup berkala melalui menu Riwayat & Rekap.
 </div>
 
-<!-- BERANDA -->
+<!-- DASHBOARD UTAMA -->
 <section id="home" class="page">
   <div class="metrics" id="home-metrics"></div>
 
   <div class="panel">
     <h2>Akses Cepat</h2>
+
     <div class="quick">
       <button data-go="report">
         <span>▤</span>
         Buat Laporan K3
       </button>
+
       <button data-go="inspection">
         <span>☑</span>
         Inspeksi K3 Area Kerja
       </button>
+
       <button data-go="dashboard">
         <span>◉</span>
         Lihat Rekap dan Riwayat
@@ -436,26 +578,41 @@ th{background:#f4f8fa;white-space:nowrap}
   </div>
 </section>
 
-<!-- PELAPORAN K3 -->
+<!-- FORM PELAPORAN K3 -->
 <section id="report" class="page" hidden>
   <div class="panel">
     <h2>Form Pelaporan K3</h2>
+    <p class="muted">
+      Lengkapi informasi pelapor, kejadian,
+      dan dokumentasi pendukung.
+    </p>
 
     <form id="report-form">
+
+      <!-- BAGIAN A -->
+      <div class="section-heading">
+        A. Identitas Pelapor dan Lokasi
+      </div>
+
       <div class="grid">
+
         <label class="field">
           Nama Pelapor *
-          <input name="reporter" required maxlength="100">
+          <input name="reporter"
+                 required maxlength="100"
+                 placeholder="Masukkan nama pelapor">
         </label>
 
         <label class="field">
           NPK / Nomor Karyawan
-          <input name="npk" maxlength="40">
+          <input name="npk"
+                 maxlength="40"
+                 placeholder="Masukkan NPK">
         </label>
 
         <label class="field">
           Jenis Laporan *
-          <select name="type" required>
+          <select name="type" id="report-type" required>
             <option value="">Pilih Jenis</option>
             <option>Kecelakaan Kerja</option>
             <option>Near Miss</option>
@@ -493,79 +650,159 @@ th{background:#f4f8fa;white-space:nowrap}
         </label>
 
         <label class="field">
-          Tingkat Risiko Awal
-          <select name="risk">
+          Tingkat Risiko Awal *
+          <select name="risk" required>
+            <option value="">Pilih Risiko</option>
             <option>Rendah</option>
             <option>Sedang</option>
             <option>Tinggi</option>
             <option>Kritis</option>
           </select>
         </label>
+      </div>
 
-        <label class="field full">
-          Uraian Kejadian / Temuan *
-          <textarea name="description" rows="4"
-                    maxlength="2500" required></textarea>
+      <!-- BAGIAN B -->
+      <div class="section-heading">
+        B. Informasi Kejadian
+      </div>
+
+      <div class="grid">
+
+        <label class="field">
+          Waktu Kejadian *
+          <input name="time"
+                 type="time" required>
+        </label>
+
+        <label class="field">
+          Nama Korban (jika ada)
+          <input name="victim"
+                 maxlength="150"
+                 placeholder="Nama korban">
+        </label>
+
+        <label class="field">
+          Lost Workdays
+          <input id="report-lost-days"
+                 name="lostWorkdays"
+                 type="number"
+                 min="0" step="1"
+                 value="0" readonly>
+          <span id="lost-days-note" class="helper">
+            Pilih jenis laporan terlebih dahulu.
+          </span>
+        </label>
+
+        <label class="field">
+          Jenis Bahaya / Cedera *
+          <input name="hazard"
+                 required maxlength="250"
+                 placeholder="Contoh: Terjepit, terpeleset, benda jatuh">
         </label>
 
         <label class="field full">
-          Tindakan Sementara
-          <textarea name="action" rows="3"
-                    maxlength="1500"></textarea>
+          Kronologi / Deskripsi Kejadian *
+          <textarea name="description"
+                    rows="5"
+                    maxlength="3000"
+                    required
+                    placeholder="Jelaskan kronologi kejadian secara runtut"></textarea>
+        </label>
+
+        <label class="field full">
+          Tindakan Awal *
+          <textarea name="action"
+                    rows="3"
+                    maxlength="2000"
+                    required
+                    placeholder="Jelaskan tindakan awal yang telah dilakukan"></textarea>
         </label>
 
         <label class="field full">
           Rekomendasi Tindak Lanjut
-          <textarea name="recommendation" rows="3"
-                    maxlength="1500"></textarea>
+          <textarea name="recommendation"
+                    rows="3"
+                    maxlength="2000"
+                    placeholder="Rekomendasi perbaikan atau pencegahan"></textarea>
         </label>
       </div>
 
+      <!-- BAGIAN C -->
+      <div class="section-heading">
+        C. Dokumentasi Kejadian
+      </div>
+
       <div class="photo-section">
-        <h3>Dokumentasi Kejadian</h3>
+        <h3>Foto Dokumentasi</h3>
+
         <label class="field">
-          Foto Pendukung (opsional, maksimal 400 KB)
-          <input type="file" id="report-photo"
+          Upload Foto Kejadian (Opsional)
+          <input type="file"
+                 id="report-photo"
                  accept="image/jpeg,image/png,image/webp">
         </label>
+
         <img id="report-preview"
-             class="photo-preview" alt="Foto laporan" hidden>
+             class="photo-preview"
+             alt="Preview Foto Kejadian"
+             hidden>
+
+        <p class="helper">
+          Format JPG, PNG, atau WebP.
+          Ukuran maksimal 400 KB.
+        </p>
       </div>
 
       <div class="toolbar">
         <button class="btn primary" type="submit">
-          Simpan Laporan
+          Simpan Laporan K3
         </button>
-        <button class="btn" type="reset">Bersihkan</button>
+        <button class="btn" type="reset">
+          Bersihkan Form
+        </button>
       </div>
+
     </form>
   </div>
 </section>
 
-<!-- INSPEKSI K3 -->
+<!-- FORM INSPEKSI K3 -->
 <section id="inspection" class="page" hidden>
   <div class="panel">
     <h2>Form Inspeksi K3 Area Kerja</h2>
+
     <p class="muted">
-      Checklist otomatis berubah berdasarkan Plant,
-      area, dan departemen yang dipilih.
+      Pertanyaan otomatis berubah sesuai Plant,
+      area kerja, dan departemen yang diperiksa.
     </p>
 
     <form id="inspection-form">
+
+      <div class="section-heading">
+        A. Identitas Pemeriksaan
+      </div>
+
       <div class="grid">
+
         <label class="field">
           Nama Pemeriksa *
-          <input name="inspector" maxlength="100" required>
+          <input name="inspector"
+                 maxlength="100"
+                 required>
         </label>
 
         <label class="field">
           Tanggal Inspeksi *
-          <input name="date" type="date" required>
+          <input name="date"
+                 type="date"
+                 required>
         </label>
 
         <label class="field">
           Plant *
-          <select name="plant" id="inspection-plant" required>
+          <select name="plant"
+                  id="inspection-plant"
+                  required>
             <option value="">Pilih Plant</option>
             <option>Plant 1</option>
             <option>Plant 3</option>
@@ -574,14 +811,17 @@ th{background:#f4f8fa;white-space:nowrap}
 
         <label class="field">
           Area Inspeksi *
-          <select name="area" id="inspection-area" required>
+          <select name="area"
+                  id="inspection-area"
+                  required>
             <option value="">Pilih Area</option>
           </select>
         </label>
 
         <label class="field">
           Departemen yang Diperiksa *
-          <select name="department" id="inspection-dept"
+          <select name="department"
+                  id="inspection-dept"
                   required>
             <option value="">Pilih Departemen</option>
           </select>
@@ -589,8 +829,9 @@ th{background:#f4f8fa;white-space:nowrap}
 
         <label class="field">
           Lokasi Spesifik
-          <input name="location" maxlength="200"
-                 placeholder="Contoh: Mesin Printing 2">
+          <input name="location"
+                 maxlength="200"
+                 placeholder="Contoh: Area Mesin Printing 2">
         </label>
 
         <label class="field">
@@ -605,41 +846,59 @@ th{background:#f4f8fa;white-space:nowrap}
 
         <label class="field">
           Pendamping Inspeksi
-          <input name="companion" maxlength="100">
+          <input name="companion"
+                 maxlength="100">
         </label>
       </div>
 
       <div class="section-heading">
-        Checklist Kepatuhan dan Kedisiplinan K3
+        B. Checklist Kepatuhan dan Kedisiplinan K3
       </div>
 
       <div id="inspection-intro" class="notice">
-        Pilih Plant, area, dan departemen untuk
-        menampilkan pertanyaan inspeksi.
+        Pilih Plant, area, dan departemen
+        untuk menampilkan pertanyaan inspeksi.
       </div>
 
       <div id="inspection-questions"></div>
 
-      <div class="progress" id="inspection-progress" hidden>
+      <div class="progress"
+           id="inspection-progress"
+           hidden>
         0 / 0 pertanyaan terisi
       </div>
 
       <label class="field">
         Kesimpulan dan Rekomendasi
-        <textarea name="summary" rows="3"
+        <textarea name="summary"
+                  rows="3"
                   maxlength="2000"
-                  placeholder="Tuliskan hasil pemeriksaan dan tindak lanjut"></textarea>
+                  placeholder="Tuliskan temuan utama dan rekomendasi"></textarea>
       </label>
 
+      <div class="section-heading">
+        C. Dokumentasi Inspeksi
+      </div>
+
       <div class="photo-section">
-        <h3>Dokumentasi Inspeksi</h3>
+        <h3>Foto Kondisi Area / Temuan</h3>
+
         <label class="field">
-          Foto Temuan / Area (opsional, maksimal 400 KB)
-          <input type="file" id="inspection-photo"
+          Upload Foto (Opsional)
+          <input type="file"
+                 id="inspection-photo"
                  accept="image/jpeg,image/png,image/webp">
         </label>
+
         <img id="inspection-preview"
-             class="photo-preview" alt="Foto inspeksi" hidden>
+             class="photo-preview"
+             alt="Preview Foto Inspeksi"
+             hidden>
+
+        <p class="helper">
+          Format JPG, PNG, atau WebP.
+          Ukuran maksimal 400 KB.
+        </p>
       </div>
 
       <div class="toolbar">
@@ -650,12 +909,14 @@ th{background:#f4f8fa;white-space:nowrap}
           Bersihkan Form
         </button>
       </div>
+
     </form>
   </div>
 </section>
 
-<!-- DASHBOARD / RIWAYAT -->
+<!-- DASHBOARD RIWAYAT -->
 <section id="dashboard" class="page" hidden>
+
   <div class="panel">
     <h2>Dashboard & Rekap Safety Report</h2>
 
@@ -663,14 +924,20 @@ th{background:#f4f8fa;white-space:nowrap}
       <button class="btn primary" id="export-csv">
         Ekspor CSV (Excel)
       </button>
+
       <button class="btn" id="backup-json">
         Backup JSON
       </button>
+
       <button class="btn" id="import-json">
         Impor Backup
       </button>
-      <input type="file" id="import-file"
-             accept=".json,application/json" hidden>
+
+      <input type="file"
+             id="import-file"
+             accept=".json,application/json"
+             hidden>
+
       <button class="btn" id="print-data">
         Cetak / PDF
       </button>
@@ -683,6 +950,7 @@ th{background:#f4f8fa;white-space:nowrap}
     <h3>Riwayat Laporan & Inspeksi</h3>
 
     <div class="toolbar">
+
       <select id="history-filter" class="btn">
         <option value="">Semua Jenis</option>
         <option value="report">Pelaporan K3</option>
@@ -695,7 +963,12 @@ th{background:#f4f8fa;white-space:nowrap}
         <option>Plant 3</option>
       </select>
 
-      <input id="history-search" class="btn"
+      <select id="history-dept" class="btn">
+        <option value="">Semua Departemen</option>
+      </select>
+
+      <input id="history-search"
+             class="btn"
              placeholder="Cari area / departemen / nama">
     </div>
 
@@ -709,7 +982,7 @@ th{background:#f4f8fa;white-space:nowrap}
             <th>Area</th>
             <th>Departemen</th>
             <th>Pelapor / Pemeriksa</th>
-            <th>Temuan</th>
+            <th>Risiko / Temuan</th>
             <th>Aksi</th>
           </tr>
         </thead>
@@ -722,6 +995,7 @@ th{background:#f4f8fa;white-space:nowrap}
 <footer class="footer">
   © 2026 HSEGA | PT Solusi Prima Packaging
 </footer>
+
 </main>
 </div>
 
@@ -729,44 +1003,80 @@ th{background:#f4f8fa;white-space:nowrap}
 (() => {
 "use strict";
 
+/* =================================================
+   KONFIGURASI DASAR
+================================================= */
+
 const $ = id => document.getElementById(id);
 
-/*
-  Penyimpanan menggunakan kunci baru agar tidak
-  menimpa data versi Safety Report sebelumnya.
-*/
 const STORE = "sopra_safety_report_area_v1";
 
-let db = {reports:[],inspections:[]};
+let db = {
+  reports:[],
+  inspections:[]
+};
 
-const photos = {report:"",inspection:""};
-
-const DEPARTMENTS = [
-  "HCM","Finance","GA","HSE","CS","Security",
-  "Warehouse","Produksi","Maintenance","QC",
-  "QA","Visual","GO","PPC","Purchasing",
-  "Logistik","Utility","Management","Lainnya"
-];
-
-/*
-  Labeling hanya Plant 3.
-  Crusher dan Printing sementara tersedia di
-  kedua Plant, sesuai pembahasan sebelumnya.
-*/
-const AREAS = {
-  "Plant 1":[
-    "Office","Produksi","Gudang",
-    "Crusher","Printing","Area Outdoor"
-  ],
-  "Plant 3":[
-    "Office","Produksi","Gudang",
-    "Crusher","Printing","Labeling","Area Outdoor"
-  ]
+const photos = {
+  report:"",
+  inspection:""
 };
 
 /*
-  Pertanyaan umum berlaku di semua area.
+  HSE dan GA digabung menjadi HSE/GA.
+  Berlaku di Pelaporan K3 dan Inspeksi K3.
 */
+
+const DEPARTMENTS = [
+  "HCM",
+  "Finance",
+  "HSE/GA",
+  "CS",
+  "Security",
+  "Warehouse",
+  "Produksi",
+  "Maintenance",
+  "QC",
+  "QA",
+  "Visual",
+  "GO",
+  "PPC",
+  "Purchasing",
+  "Logistik",
+  "Utility",
+  "Management",
+  "Lainnya"
+];
+
+/*
+  Pembagian area sementara:
+  Labeling hanya ada di Plant 3.
+*/
+
+const AREAS = {
+  "Plant 1":[
+    "Office",
+    "Produksi",
+    "Gudang",
+    "Crusher",
+    "Printing",
+    "Area Outdoor"
+  ],
+
+  "Plant 3":[
+    "Office",
+    "Produksi",
+    "Gudang",
+    "Crusher",
+    "Printing",
+    "Labeling",
+    "Area Outdoor"
+  ]
+};
+
+/* =================================================
+   PERTANYAAN UMUM K3
+================================================= */
+
 const COMMON = [
   "Apakah karyawan mematuhi tata tertib dan prosedur K3 yang berlaku?",
   "Apakah area kerja dalam kondisi bersih, rapi, dan bebas dari potensi tersandung?",
@@ -775,17 +1085,18 @@ const COMMON = [
   "Apakah karyawan menghindari bercanda berlebihan atau perilaku tidak aman saat bekerja?"
 ];
 
-/*
-  Pertanyaan khusus menurut AREA.
-*/
+/* =================================================
+   PERTANYAAN BERDASARKAN AREA
+================================================= */
+
 const AREA_QUESTIONS = {
 
   "Office":[
-    "Apakah meja kerja dan perlengkapan kantor tersusun rapi?",
+    "Apakah meja kerja dan perlengkapan kantor tersusun dengan rapi?",
     "Apakah kabel, stopkontak, dan peralatan elektronik digunakan secara aman?",
     "Apakah tidak ditemukan penggunaan stopkontak berlebihan atau sambungan listrik yang tidak aman?",
     "Apakah posisi kerja dan penggunaan komputer memperhatikan prinsip ergonomi?",
-    "Apakah dokumen dan barang disimpan dengan aman serta tidak menghalangi akses?",
+    "Apakah dokumen dan barang disimpan dengan aman tanpa menghalangi akses?",
     "Apakah karyawan menjaga kebersihan dan ketertiban area kerja serta membuang sampah pada tempatnya?",
     "Apakah fasilitas kantor seperti kursi, meja, dan pencahayaan berada dalam kondisi layak?"
   ],
@@ -795,10 +1106,10 @@ const AREA_QUESTIONS = {
     "Apakah karyawan menggunakan safety shoes sesuai ketentuan area produksi?",
     "Apakah APD tambahan digunakan sesuai risiko pekerjaan?",
     "Apakah operator mematuhi SOP pengoperasian mesin?",
-    "Apakah pelindung mesin dan emergency stop tersedia serta berfungsi?",
+    "Apakah pelindung mesin dan tombol emergency stop tersedia serta berfungsi?",
     "Apakah operator menghindari kontak langsung dengan bagian mesin yang bergerak?",
     "Apakah karyawan tidak menggunakan ponsel saat mengoperasikan mesin?",
-    "Apakah material dan roll produksi disusun stabil serta tidak menghalangi jalur?",
+    "Apakah material dan roll produksi disusun dengan stabil serta tidak menghalangi jalur?",
     "Apakah lantai bebas dari tumpahan cairan, sampah, dan material berserakan?",
     "Apakah pembersihan dan perbaikan mesin dilakukan dengan pengamanan energi sesuai SOP?"
   ],
@@ -808,7 +1119,7 @@ const AREA_QUESTIONS = {
     "Apakah seluruh pekerja menggunakan safety shoes?",
     "Apakah jalur forklift dan jalur pejalan kaki dipatuhi?",
     "Apakah operator forklift merupakan personel yang berwenang?",
-    "Apakah barang disusun stabil dan tidak melebihi batas aman penumpukan?",
+    "Apakah barang disusun secara stabil dan tidak melebihi batas aman penumpukan?",
     "Apakah rak dan pallet berada dalam kondisi layak pakai?",
     "Apakah kegiatan bongkar muat dilakukan sesuai prosedur keselamatan?",
     "Apakah pekerja menghindari berdiri di bawah atau dekat beban yang berpotensi jatuh?",
@@ -819,11 +1130,11 @@ const AREA_QUESTIONS = {
   "Crusher":[
     "Apakah seluruh pekerja menggunakan safety helmet?",
     "Apakah seluruh pekerja menggunakan safety shoes?",
-    "Apakah pelindung mata, telinga, atau pernapasan digunakan sesuai hasil penilaian risiko?",
+    "Apakah pelindung mata, telinga, atau pernapasan digunakan sesuai penilaian risiko?",
     "Apakah pelindung mesin crusher terpasang dan tidak dimodifikasi?",
     "Apakah tombol emergency stop crusher tersedia dan berfungsi?",
-    "Apakah operator tidak memasukkan tangan atau alat ke dalam mesin yang bergerak?",
-    "Apakah pekerjaan membuka material tersangkut dilakukan setelah isolasi energi?",
+    "Apakah operator tidak memasukkan tangan atau alat ke dalam mesin yang sedang bergerak?",
+    "Apakah penanganan material tersangkut dilakukan setelah mesin diisolasi dari sumber energi?",
     "Apakah pekerja menghindari pakaian longgar atau aksesori yang berpotensi tersangkut mesin?",
     "Apakah serpihan dan sisa material dibersihkan secara aman?",
     "Apakah seluruh operator mematuhi SOP pengoperasian crusher?"
@@ -836,7 +1147,7 @@ const AREA_QUESTIONS = {
     "Apakah tinta, solvent, dan bahan kimia disimpan dalam wadah yang sesuai serta berlabel?",
     "Apakah SDS bahan kimia tersedia dan dapat diakses pekerja?",
     "Apakah ventilasi atau pengendalian uap bahan kimia berfungsi sesuai kebutuhan?",
-    "Apakah larangan merokok dan sumber api dipatuhi di area bahan mudah terbakar?",
+    "Apakah larangan merokok dan penggunaan sumber api dipatuhi di area bahan mudah terbakar?",
     "Apakah pekerja menjaga tangan dari roller dan bagian mesin yang bergerak?",
     "Apakah tumpahan tinta atau bahan kimia ditangani sesuai prosedur?",
     "Apakah limbah tinta dan material terkontaminasi ditempatkan pada wadah yang ditentukan?"
@@ -846,58 +1157,59 @@ const AREA_QUESTIONS = {
     "Apakah seluruh pekerja menggunakan hair cap dengan benar?",
     "Apakah hair cap dalam kondisi bersih dan menutupi seluruh rambut?",
     "Apakah seluruh pekerja menggunakan safety shoes sesuai ketentuan sementara area Labeling?",
-    "Apakah operator mematuhi SOP mesin labeling?",
-    "Apakah pelindung bagian mesin bergerak dan emergency stop tersedia serta berfungsi?",
+    "Apakah operator mematuhi SOP pengoperasian mesin labeling?",
+    "Apakah pelindung bagian mesin yang bergerak dan emergency stop tersedia serta berfungsi?",
     "Apakah pekerja menjaga tangan dari roller, conveyor, dan titik jepit mesin?",
     "Apakah material yang tersangkut ditangani setelah mesin berada dalam kondisi aman?",
     "Apakah sisa label dan material tidak berserakan di lantai?",
-    "Apakah produk, label, dan bahan pendukung disusun rapi?",
+    "Apakah produk, label, dan bahan pendukung disusun dengan rapi?",
     "Apakah pekerja menghindari penggunaan ponsel dan perilaku tidak aman selama proses labeling?"
   ],
 
   "Area Outdoor":[
-    "Apakah jalur kendaraan dan pejalan kaki dalam kondisi aman?",
+    "Apakah jalur kendaraan dan pejalan kaki berada dalam kondisi aman?",
     "Apakah pekerja menggunakan APD sesuai aktivitas dan penilaian risiko?",
-    "Apakah drainase dan permukaan jalan bebas dari bahaya terpeleset?",
+    "Apakah drainase dan permukaan jalan bebas dari potensi terpeleset?",
     "Apakah material disimpan tanpa menghalangi akses kendaraan darurat?",
     "Apakah pekerjaan di luar ruangan memiliki pengendalian risiko cuaca dan lingkungan?",
-    "Apakah rambu peringatan dan pembatas area bahaya tersedia bila diperlukan?"
+    "Apakah rambu peringatan dan pembatas area bahaya tersedia apabila diperlukan?"
   ]
 };
 
-/*
-  Pertanyaan khusus menurut DEPARTEMEN.
-  Pertanyaan ini ditambahkan setelah pertanyaan
-  umum dan pertanyaan area.
-*/
+/* =================================================
+   PERTANYAAN KHUSUS DEPARTEMEN
+================================================= */
+
 const DEPT_QUESTIONS = {
 
   "HCM":[
-    "Apakah informasi dan sosialisasi aturan K3 kepada karyawan telah dilaksanakan sesuai kebutuhan?",
+    "Apakah sosialisasi aturan K3 kepada karyawan dilaksanakan sesuai kebutuhan?",
     "Apakah administrasi pelatihan atau induksi K3 karyawan terdokumentasi?",
-    "Apakah penempatan dokumen karyawan dan arsip kerja dilakukan dengan rapi serta aman?"
+    "Apakah arsip kerja dan dokumen karyawan disimpan dengan aman serta rapi?"
   ],
 
   "Finance":[
-    "Apakah dokumen dan arsip keuangan disimpan rapi tanpa menimbulkan risiko jatuh atau menghalangi akses?",
-    "Apakah peralatan komputer, printer, dan perangkat listrik Finance digunakan secara aman?",
-    "Apakah area kerja Finance tertib dan tidak terdapat kabel atau barang yang berpotensi menyebabkan tersandung?"
+    "Apakah dokumen dan arsip keuangan disimpan dengan aman tanpa menimbulkan risiko jatuh?",
+    "Apakah komputer, printer, dan perangkat listrik Finance digunakan secara aman?",
+    "Apakah area kerja Finance bebas dari kabel atau barang yang berpotensi menyebabkan tersandung?"
   ],
 
-  "GA":[
-    "Apakah perlengkapan dan inventaris fasilitas kantor dalam kondisi aman digunakan?",
-    "Apakah penyimpanan ATK dan barang kebutuhan operasional dilakukan dengan rapi?",
-    "Apakah laporan kerusakan fasilitas atau potensi bahaya telah ditindaklanjuti sesuai prosedur?"
-  ],
+  /*
+    HSE DAN GA DIGABUNG
+  */
 
-  "HSE":[
-    "Apakah hasil inspeksi dan temuan K3 didokumentasikan dengan baik?",
-    "Apakah APAR, P3K, dan fasilitas tanggap darurat diperiksa sesuai jadwal yang ditetapkan?",
-    "Apakah temuan unsafe condition dan unsafe action mendapatkan tindak lanjut?"
+  "HSE/GA":[
+    "Apakah kegiatan inspeksi K3 dan pemeriksaan fasilitas kerja dilaksanakan sesuai jadwal?",
+    "Apakah temuan unsafe condition dan unsafe action didokumentasikan serta ditindaklanjuti?",
+    "Apakah APAR, P3K, dan fasilitas tanggap darurat tersedia serta dipantau kondisinya?",
+    "Apakah fasilitas umum, ruang kerja, dan perlengkapan operasional berada dalam kondisi aman?",
+    "Apakah inventaris kantor dan perlengkapan GA dikelola serta disimpan secara tertib?",
+    "Apakah kerusakan fasilitas atau potensi bahaya telah dilaporkan kepada pihak terkait?",
+    "Apakah dokumen inspeksi, pemeliharaan fasilitas, dan tindak lanjut perbaikan tersimpan dengan baik?"
   ],
 
   "CS":[
-    "Apakah area penerimaan tamu atau pelayanan pelanggan dalam keadaan tertib dan aman?",
+    "Apakah area pelayanan pelanggan berada dalam keadaan tertib dan aman?",
     "Apakah jalur keluar masuk tamu bebas dari hambatan?",
     "Apakah peralatan kantor dan fasilitas pelayanan pelanggan digunakan secara aman?"
   ],
@@ -905,13 +1217,13 @@ const DEPT_QUESTIONS = {
   "Security":[
     "Apakah petugas mematuhi prosedur pengawasan akses masuk dan keluar?",
     "Apakah petugas menggunakan perlengkapan kerja sesuai tugas dan penilaian risiko?",
-    "Apakah jalur kendaraan, tamu, dan pejalan kaki diawasi agar tidak menimbulkan bahaya?",
+    "Apakah jalur kendaraan, tamu, dan pejalan kaki diawasi untuk mencegah kecelakaan?",
     "Apakah petugas mengetahui prosedur penanganan keadaan darurat dan pelaporan kejadian?"
   ],
 
   "Warehouse":[
     "Apakah proses penerimaan, penyimpanan, dan pengeluaran material mengikuti prosedur gudang?",
-    "Apakah pemeriksaan visual forklift, pallet, dan rak dilakukan sesuai prosedur?",
+    "Apakah pemeriksaan forklift, pallet, dan rak dilakukan sesuai prosedur?",
     "Apakah pekerja mematuhi batas aman penumpukan dan pemisahan jalur kendaraan?"
   ],
 
@@ -923,13 +1235,13 @@ const DEPT_QUESTIONS = {
 
   "Maintenance":[
     "Apakah pekerjaan perbaikan dilaksanakan setelah izin kerja yang diperlukan diperoleh?",
-    "Apakah isolasi energi atau lockout-tagout diterapkan saat pekerjaan mensyaratkannya?",
-    "Apakah alat kerja dan perkakas diperiksa sebelum digunakan?",
+    "Apakah isolasi energi atau lockout-tagout diterapkan ketika pekerjaan mensyaratkannya?",
+    "Apakah perkakas dan alat kerja diperiksa sebelum digunakan?",
     "Apakah pekerjaan listrik atau pekerjaan di ketinggian dilakukan oleh personel berwenang dengan pengendalian yang sesuai?"
   ],
 
   "QC":[
-    "Apakah alat pengujian digunakan sesuai instruksi kerja yang berlaku?",
+    "Apakah alat pengujian digunakan sesuai instruksi kerja?",
     "Apakah sampel dan bahan pengujian disimpan secara aman?",
     "Apakah pekerja menggunakan APD sesuai potensi bahaya aktivitas pengujian?"
   ],
@@ -953,43 +1265,47 @@ const DEPT_QUESTIONS = {
   ],
 
   "PPC":[
-    "Apakah koordinasi perencanaan pekerjaan memperhatikan kesiapan dan keselamatan area kerja?",
+    "Apakah koordinasi perencanaan pekerjaan memperhatikan keselamatan area kerja?",
     "Apakah dokumen dan perlengkapan kerja disimpan secara tertib?",
     "Apakah perubahan jadwal kegiatan berisiko dikomunikasikan kepada pihak terkait?"
   ],
 
   "Purchasing":[
-    "Apakah proses administrasi pengadaan dilakukan dengan penataan dokumen yang aman?",
+    "Apakah dokumen pengadaan disimpan secara aman dan tertib?",
     "Apakah kebutuhan barang terkait K3 dikoordinasikan sesuai prosedur pengadaan?",
-    "Apakah area kerja dan perlengkapan elektronik dalam kondisi tertib serta aman?"
+    "Apakah area kerja dan perlengkapan elektronik dalam kondisi aman?"
   ],
 
   "Logistik":[
-    "Apakah kegiatan penerimaan dan pengiriman barang dilaksanakan sesuai prosedur keselamatan?",
-    "Apakah pekerja menjaga jarak aman dari kendaraan angkut dan aktivitas bongkar muat?",
+    "Apakah penerimaan dan pengiriman barang dilakukan sesuai prosedur keselamatan?",
+    "Apakah pekerja menjaga jarak aman dari kendaraan dan kegiatan bongkar muat?",
     "Apakah barang dan dokumen pengiriman tidak menghalangi area kerja?"
   ],
 
   "Utility":[
-    "Apakah fasilitas utility diperiksa sesuai jadwal dan prosedur yang berlaku?",
+    "Apakah fasilitas utility diperiksa sesuai jadwal dan prosedur?",
     "Apakah panel listrik, instalasi, dan peralatan utility memiliki akses aman?",
-    "Apakah pekerjaan perawatan mengikuti pengendalian energi dan persyaratan izin kerja yang sesuai?"
+    "Apakah pekerjaan perawatan mengikuti pengendalian energi dan izin kerja yang sesuai?"
   ],
 
   "Management":[
-    "Apakah pimpinan area mendukung pelaksanaan prosedur dan disiplin K3?",
-    "Apakah temuan keselamatan kerja dari area terkait mendapatkan arahan tindak lanjut?",
+    "Apakah pimpinan area mendukung pelaksanaan disiplin K3?",
+    "Apakah temuan keselamatan kerja mendapatkan arahan tindak lanjut?",
     "Apakah informasi risiko dan keselamatan disampaikan kepada karyawan yang berkepentingan?"
   ],
 
   "Lainnya":[
     "Apakah pekerjaan dilakukan sesuai instruksi kerja dan aturan K3?",
     "Apakah alat kerja serta fasilitas digunakan dengan aman?",
-    "Apakah bahaya yang ditemukan dilaporkan kepada penanggung jawab area?"
+    "Apakah potensi bahaya yang ditemukan dilaporkan kepada penanggung jawab area?"
   ]
 };
 
-function escapeHTML(value){
+/* =================================================
+   FUNGSI UMUM
+================================================= */
+
+function escapeHTML(value) {
   return String(value??"").replace(
     /[&<>"']/g,
     c=>({
@@ -1002,52 +1318,89 @@ function escapeHTML(value){
   );
 }
 
-function id(){
-  if(window.crypto && crypto.randomUUID){
+function makeId() {
+  if(window.crypto && crypto.randomUUID) {
     return crypto.randomUUID();
   }
+
   return "SOPRA-"+Date.now()+"-"+
     Math.random().toString(36).slice(2);
 }
 
-function today(){
+function today() {
   const d=new Date();
+
   return new Date(
     d.getTime()-d.getTimezoneOffset()*60000
   ).toISOString().slice(0,10);
 }
 
-function load(){
-  try{
-    const x=JSON.parse(localStorage.getItem(STORE)||"{}");
+function normalizeDept(dept) {
+  if(dept==="HSE" || dept==="GA") {
+    return "HSE/GA";
+  }
+
+  return dept||"";
+}
+
+function load() {
+  try {
+    const x=JSON.parse(
+      localStorage.getItem(STORE)||"{}"
+    );
+
     db={
-      reports:Array.isArray(x.reports)?x.reports:[],
-      inspections:Array.isArray(x.inspections)?x.inspections:[]
+      reports:Array.isArray(x.reports)
+        ?x.reports.map(r=>({
+          ...r,
+          department:normalizeDept(r.department)
+        }))
+        :[],
+
+      inspections:Array.isArray(x.inspections)
+        ?x.inspections.map(i=>({
+          ...i,
+          department:normalizeDept(i.department)
+        }))
+        :[]
     };
-  }catch{
+
+  }catch {
     db={reports:[],inspections:[]};
   }
 }
 
-function persist(next){
-  try{
-    localStorage.setItem(STORE,JSON.stringify(next));
+function persist(next) {
+  try {
+    localStorage.setItem(
+      STORE,
+      JSON.stringify(next)
+    );
+
     db=next;
     return true;
-  }catch(error){
+
+  }catch(error) {
     alert(
-      "Penyimpanan gagal. Memori browser mungkin penuh. "+
-      "Silakan ekspor backup dahulu. "+error.message
+      "Gagal menyimpan. Memori browser mungkin penuh. "+
+      "Lakukan backup data. "+error.message
     );
+
     return false;
   }
 }
 
-function formValues(form){
-  return Object.fromEntries(new FormData(form).entries());
+function formValues(form) {
+  return Object.fromEntries(
+    new FormData(form).entries()
+  );
 }
 
-function go(page){
+/* =================================================
+   NAVIGASI
+================================================= */
+
+function go(page) {
   document.querySelectorAll(".page").forEach(el=>{
     el.hidden=el.id!==page;
   });
@@ -1064,14 +1417,17 @@ function go(page){
       "Dashboard Safety Report",
       "Monitoring pelaporan dan inspeksi K3 area kerja."
     ],
+
     report:[
       "Pelaporan K3",
-      "Kecelakaan kerja, near miss, unsafe condition, dan unsafe action."
+      "Kecelakaan kerja, Near Miss, Unsafe Condition, dan Unsafe Action."
     ],
+
     inspection:[
       "Inspeksi K3 Area Kerja",
-      "Checklist berdasarkan Plant, area, dan departemen."
+      "Pemeriksaan berdasarkan Plant, area, dan departemen."
     ],
+
     dashboard:[
       "Dashboard & Riwayat K3",
       "Rekapitulasi laporan, temuan, dan hasil inspeksi."
@@ -1085,36 +1441,61 @@ function go(page){
   window.scrollTo(0,0);
 }
 
-document.querySelectorAll("[data-page]").forEach(el=>{
+document.querySelectorAll("[data-page]")
+.forEach(el=>{
   el.onclick=()=>go(el.dataset.page);
 });
 
-document.querySelectorAll("[data-go]").forEach(el=>{
+document.querySelectorAll("[data-go]")
+.forEach(el=>{
   el.onclick=()=>go(el.dataset.go);
 });
 
-function fillDepartments(select){
+/* =================================================
+   PILIHAN DEPARTEMEN DAN AREA
+================================================= */
+
+function fillDepartments(select,placeholder) {
   select.innerHTML=
-    '<option value="">Pilih Departemen</option>'+
-    DEPARTMENTS.map(d=>
-      `<option value="${escapeHTML(d)}">${escapeHTML(d)}</option>`
+    `<option value="">${placeholder}</option>`+
+    DEPARTMENTS.map(dept=>
+      `<option value="${escapeHTML(dept)}">
+        ${escapeHTML(dept)}
+      </option>`
     ).join("");
 }
 
-fillDepartments($("report-dept"));
-fillDepartments($("inspection-dept"));
+fillDepartments(
+  $("report-dept"),
+  "Pilih Departemen"
+);
 
-function updateAreas(prefix){
+fillDepartments(
+  $("inspection-dept"),
+  "Pilih Departemen"
+);
+
+$("history-dept").innerHTML=
+  '<option value="">Semua Departemen</option>'+
+  DEPARTMENTS.map(dept=>
+    `<option value="${escapeHTML(dept)}">
+      ${escapeHTML(dept)}
+    </option>`
+  ).join("");
+
+function updateAreas(prefix) {
   const plant=$(prefix+"-plant").value;
   const select=$(prefix+"-area");
 
   select.innerHTML=
     '<option value="">Pilih Area</option>'+
     (AREAS[plant]||[]).map(area=>
-      `<option value="${escapeHTML(area)}">${escapeHTML(area)}</option>`
+      `<option value="${escapeHTML(area)}">
+        ${escapeHTML(area)}
+      </option>`
     ).join("");
 
-  if(prefix==="inspection"){
+  if(prefix==="inspection") {
     renderQuestions();
   }
 }
@@ -1130,14 +1511,49 @@ $("inspection-plant").onchange=()=>{
 $("inspection-area").onchange=renderQuestions;
 $("inspection-dept").onchange=renderQuestions;
 
-/*
-  Setiap checklist diberi kode sumber
-  agar mudah diidentifikasi pada hasil rekap.
-*/
+/* =================================================
+   LOST WORKDAYS OTOMATIS
+================================================= */
+
+function updateLostWorkdays() {
+  const type=$("report-type").value;
+  const input=$("report-lost-days");
+  const note=$("lost-days-note");
+
+  if(type==="Kecelakaan Kerja") {
+    input.readOnly=false;
+    input.disabled=false;
+    input.required=true;
+
+    note.textContent=
+      "Isi jumlah hari kerja yang hilang akibat cedera. "+
+      "Nilai dapat diperbarui setelah diketahui.";
+  }else {
+    input.value="0";
+    input.readOnly=true;
+    input.disabled=false;
+    input.required=false;
+
+    note.textContent=
+      "Otomatis 0 untuk Near Miss, Unsafe Condition, "+
+      "dan Unsafe Action.";
+  }
+}
+
+$("report-type").onchange=updateLostWorkdays;
+
+/* =================================================
+   PERTANYAAN INSPEKSI DINAMIS
+================================================= */
+
 let currentQuestions=[];
 
-function getQuestions(plant,area,dept){
-  if(!plant||!area||!dept)return [];
+function getQuestions(plant,area,dept) {
+  if(!plant||!area||!dept) return [];
+
+  if(!(AREAS[plant]||[]).includes(area)) {
+    return [];
+  }
 
   const result=[];
 
@@ -1166,10 +1582,11 @@ function getQuestions(plant,area,dept){
   });
 
   /*
-    Tambahan risiko khusus kombinasi
-    Plant, Area, dan Departemen.
+    Pertanyaan tambahan berdasarkan
+    kombinasi area dan departemen.
   */
-  if(area==="Gudang" && dept==="Security"){
+
+  if(area==="Gudang" && dept==="Security") {
     result.push({
       code:"K01",
       group:"Security di Gudang",
@@ -1177,41 +1594,65 @@ function getQuestions(plant,area,dept){
     });
   }
 
-  if(area==="Produksi" && dept==="Maintenance"){
+  if(area==="Gudang" && dept==="Warehouse") {
     result.push({
-      code:"K01",
-      group:"Maintenance di Produksi",
-      text:"Apakah aktivitas perbaikan mesin dilakukan setelah area kerja diamankan dan energi diisolasi sesuai SOP?"
+      code:"K02",
+      group:"Warehouse di Gudang",
+      text:"Apakah posisi barang dan jalur forklift diperiksa untuk memastikan aktivitas pergudangan tetap aman?"
     });
   }
 
-  if(area==="Printing" && dept==="Maintenance"){
+  if(area==="Produksi" && dept==="Maintenance") {
     result.push({
-      code:"K01",
+      code:"K03",
+      group:"Maintenance di Produksi",
+      text:"Apakah pekerjaan perbaikan mesin dilakukan setelah area diamankan dan energi diisolasi sesuai SOP?"
+    });
+  }
+
+  if(area==="Printing" && dept==="Maintenance") {
+    result.push({
+      code:"K04",
       group:"Maintenance di Printing",
       text:"Apakah pekerjaan pemeliharaan di dekat tinta atau solvent menerapkan pengendalian sumber panas dan bahaya kebakaran?"
     });
   }
 
-  if(area==="Labeling" && plant==="Plant 3"){
+  if(area==="Crusher" && dept==="Maintenance") {
     result.push({
-      code:"K02",
-      group:"Persyaratan Plant 3",
-      text:"Apakah ketentuan hair cap dipatuhi oleh seluruh pekerja yang memasuki area Labeling?"
+      code:"K05",
+      group:"Maintenance di Crusher",
+      text:"Apakah crusher dipastikan berhenti dan sumber energinya diisolasi sebelum pekerjaan pemeliharaan?"
+    });
+  }
+
+  if(area==="Office" && dept==="HSE/GA") {
+    result.push({
+      code:"K06",
+      group:"HSE/GA di Office",
+      text:"Apakah fasilitas kantor, lemari penyimpanan, jalur evakuasi, dan perlengkapan keselamatan diperiksa secara berkala?"
+    });
+  }
+
+  if(area==="Labeling" && plant==="Plant 3") {
+    result.push({
+      code:"K07",
+      group:"Ketentuan Labeling Plant 3",
+      text:"Apakah ketentuan penggunaan hair cap dipatuhi oleh pekerja di area Labeling?"
     });
   }
 
   return result;
 }
 
-function renderQuestions(){
+function renderQuestions() {
   const plant=$("inspection-plant").value;
   const area=$("inspection-area").value;
   const dept=$("inspection-dept").value;
 
   currentQuestions=getQuestions(plant,area,dept);
 
-  if(!currentQuestions.length){
+  if(!currentQuestions.length) {
     $("inspection-intro").hidden=false;
     $("inspection-questions").innerHTML="";
     $("inspection-progress").hidden=true;
@@ -1224,43 +1665,58 @@ function renderQuestions(){
   $("inspection-questions").innerHTML=
     currentQuestions.map((q,i)=>`
       <div class="question" id="question-${i}">
+
         <div class="meta">
-          ${escapeHTML(q.group)} / ${escapeHTML(q.code)}
+          ${escapeHTML(q.group)} /
+          ${escapeHTML(q.code)}
         </div>
 
-        <b>${i+1}. ${escapeHTML(q.text)}</b>
+        <b>
+          ${i+1}. ${escapeHTML(q.text)}
+        </b>
 
         <div class="choices">
           ${["Ya","Tidak","N/A"].map(answer=>`
             <label>
-              <input type="radio"
-                     name="q_${i}"
-                     value="${answer}"
-                     required>
+              <input
+                type="radio"
+                name="q_${i}"
+                value="${answer}"
+                required>
               ${answer}
             </label>
           `).join("")}
         </div>
 
-        <input class="note"
-               name="note_${i}"
-               maxlength="500"
-               placeholder="Keterangan temuan (wajib jika Tidak)">
+        <input
+          class="note"
+          name="note_${i}"
+          maxlength="500"
+          placeholder="Keterangan temuan (wajib jika Tidak)">
+
       </div>
     `).join("");
 
   $("inspection-questions")
-    .querySelectorAll("input")
-    .forEach(input=>{
-      input.addEventListener("change",updateProgress);
-      input.addEventListener("input",updateProgress);
-    });
+  .querySelectorAll("input")
+  .forEach(input=>{
+    input.addEventListener(
+      "change",
+      updateProgress
+    );
+
+    input.addEventListener(
+      "input",
+      updateProgress
+    );
+  });
 
   updateProgress();
 }
 
-function updateProgress(){
+function updateProgress() {
   const form=$("inspection-form");
+
   let answered=0;
   let failures=0;
 
@@ -1269,41 +1725,54 @@ function updateProgress(){
       `input[name="q_${i}"]:checked`
     );
 
-    const note=form.elements.namedItem("note_"+i);
+    const note=form.elements.namedItem(
+      "note_"+i
+    );
+
     const container=$("question-"+i);
 
-    if(checked)answered++;
+    if(checked) answered++;
 
-    const failed=!!checked&&checked.value==="Tidak";
+    const failed=
+      !!checked&&checked.value==="Tidak";
+
     note.required=failed;
-
     container.classList.toggle("fail",failed);
 
-    if(failed)failures++;
+    if(failed) failures++;
   });
 
   $("inspection-progress").textContent=
     answered+" / "+currentQuestions.length+
-    " pertanyaan terisi · "+
+    " pertanyaan terisi | "+
     failures+" ketidaksesuaian";
 }
 
-function setupPhoto(prefix){
+/* =================================================
+   FOTO DOKUMENTASI
+================================================= */
+
+function setupPhoto(prefix) {
   const input=$(prefix+"-photo");
   const preview=$(prefix+"-preview");
 
-  input.onchange=async()=>{
+  input.onchange=()=>{
     photos[prefix]="";
     preview.hidden=true;
 
     const file=input.files?.[0];
-    if(!file)return;
+
+    if(!file) return;
 
     if(
-      !["image/jpeg","image/png","image/webp"].includes(file.type)
+      !["image/jpeg","image/png","image/webp"]
+      .includes(file.type)
       ||file.size>400*1024
-    ){
-      alert("Gunakan JPG, PNG, atau WebP maksimal 400 KB.");
+    ) {
+      alert(
+        "Gunakan JPG, PNG, atau WebP maksimal 400 KB."
+      );
+
       input.value="";
       return;
     }
@@ -1311,7 +1780,10 @@ function setupPhoto(prefix){
     const reader=new FileReader();
 
     reader.onload=()=>{
-      photos[prefix]=String(reader.result||"");
+      photos[prefix]=String(
+        reader.result||""
+      );
+
       preview.src=photos[prefix];
       preview.hidden=false;
     };
@@ -1327,24 +1799,61 @@ function setupPhoto(prefix){
 setupPhoto("report");
 setupPhoto("inspection");
 
-function resetPhoto(prefix){
+function resetPhoto(prefix) {
   photos[prefix]="";
+
   $(prefix+"-preview").hidden=true;
   $(prefix+"-preview").removeAttribute("src");
 }
+
+/* =================================================
+   SIMPAN LAPORAN K3
+================================================= */
 
 $("report-form").onsubmit=event=>{
   event.preventDefault();
 
   const form=event.currentTarget;
 
-  if(!form.reportValidity())return;
+  if(!form.reportValidity()) return;
 
   const values=formValues(form);
 
+  const lostDays=
+    values.type==="Kecelakaan Kerja"
+      ?Number(values.lostWorkdays)
+      :0;
+
+  if(
+    !Number.isInteger(lostDays)||
+    lostDays<0
+  ) {
+    alert("Lost Workdays harus berupa bilangan bulat minimal 0.");
+    return;
+  }
+
   const record={
-    id:id(),
-    ...values,
+    id:makeId(),
+
+    reporter:values.reporter,
+    npk:values.npk||"",
+    type:values.type,
+    date:values.date,
+
+    plant:values.plant,
+    area:values.area,
+    department:normalizeDept(values.department),
+    risk:values.risk,
+
+    time:values.time,
+    victim:values.victim||"",
+    lostWorkdays:lostDays,
+    hazard:values.hazard,
+
+    description:values.description,
+    action:values.action,
+    recommendation:values.recommendation||"",
+
     photo:photos.report,
     createdAt:new Date().toISOString()
   };
@@ -1352,30 +1861,42 @@ $("report-form").onsubmit=event=>{
   if(persist({
     ...db,
     reports:[record,...db.reports]
-  })){
+  })) {
     form.reset();
     resetPhoto("report");
-    form.elements.namedItem("date").value=today();
-    updateAreas("report");
 
-    alert("Laporan K3 tersimpan pada browser ini.");
+    form.elements.namedItem("date").value=today();
+
+    updateAreas("report");
+    updateLostWorkdays();
+
+    alert(
+      "Laporan K3 berhasil disimpan di browser ini."
+    );
+
     go("dashboard");
   }
 };
+
+/* =================================================
+   SIMPAN INSPEKSI K3
+================================================= */
 
 $("inspection-form").onsubmit=event=>{
   event.preventDefault();
 
   const form=event.currentTarget;
 
-  if(!currentQuestions.length){
-    alert("Pilih Plant, area, dan departemen.");
+  if(!currentQuestions.length) {
+    alert(
+      "Pilih Plant, area, dan departemen terlebih dahulu."
+    );
     return;
   }
 
   updateProgress();
 
-  if(!form.reportValidity())return;
+  if(!form.reportValidity()) return;
 
   const values=formValues(form);
 
@@ -1384,13 +1905,18 @@ $("inspection-form").onsubmit=event=>{
     group:q.group,
     question:q.text,
     result:values["q_"+i]||"",
-    note:String(values["note_"+i]||"").trim()
+    note:String(
+      values["note_"+i]||""
+    ).trim()
   }));
 
   if(checks.some(q=>
-    !q.result||(q.result==="Tidak"&&!q.note)
-  )){
-    alert("Lengkapi seluruh jawaban dan keterangan temuan.");
+    !q.result||
+    (q.result==="Tidak"&&!q.note)
+  )) {
+    alert(
+      "Lengkapi seluruh checklist dan keterangan temuan."
+    );
     return;
   }
 
@@ -1399,18 +1925,22 @@ $("inspection-form").onsubmit=event=>{
   ).length;
 
   const record={
-    id:id(),
+    id:makeId(),
     inspector:values.inspector,
     date:values.date,
+
     plant:values.plant,
     area:values.area,
-    department:values.department,
+    department:normalizeDept(values.department),
+
     location:values.location||"",
     shift:values.shift||"",
     companion:values.companion||"",
     summary:values.summary||"",
+
     checks,
     findings,
+
     photo:photos.inspection,
     createdAt:new Date().toISOString()
   };
@@ -1418,11 +1948,12 @@ $("inspection-form").onsubmit=event=>{
   if(persist({
     ...db,
     inspections:[record,...db.inspections]
-  })){
+  })) {
     form.reset();
     resetPhoto("inspection");
 
     currentQuestions=[];
+
     $("inspection-questions").innerHTML="";
     $("inspection-intro").hidden=false;
     $("inspection-progress").hidden=true;
@@ -1430,13 +1961,19 @@ $("inspection-form").onsubmit=event=>{
     form.elements.namedItem("date").value=today();
 
     updateAreas("inspection");
+
     alert(
       "Hasil inspeksi berhasil disimpan.\n"+
       "Jumlah ketidaksesuaian: "+findings
     );
+
     go("dashboard");
   }
 };
+
+/* =================================================
+   RESET FORM
+================================================= */
 
 ["report","inspection"].forEach(prefix=>{
   const form=$(prefix+"-form");
@@ -1446,13 +1983,23 @@ $("inspection-form").onsubmit=event=>{
   form.addEventListener("reset",()=>{
     setTimeout(()=>{
       resetPhoto(prefix);
+
       form.elements.namedItem("date").value=today();
+
       updateAreas(prefix);
+
+      if(prefix==="report") {
+        updateLostWorkdays();
+      }
     },0);
   });
 });
 
-function metrics(){
+/* =================================================
+   METRIK DASHBOARD
+================================================= */
+
+function metrics() {
   const reportCount=db.reports.length;
   const inspectionCount=db.inspections.length;
 
@@ -1461,15 +2008,15 @@ function metrics(){
     0
   );
 
-  const reportsHigh=db.reports.filter(
+  const highRisk=db.reports.filter(
     r=>["Tinggi","Kritis"].includes(r.risk)
   ).length;
 
   const values=[
-    ["Laporan K3",reportCount],
-    ["Inspeksi K3",inspectionCount],
+    ["Total Laporan K3",reportCount],
+    ["Total Inspeksi K3",inspectionCount],
     ["Temuan Inspeksi",findings],
-    ["Laporan Risiko Tinggi/Kritis",reportsHigh]
+    ["Laporan Risiko Tinggi/Kritis",highRisk]
   ];
 
   const html=values.map(([title,value])=>`
@@ -1483,12 +2030,17 @@ function metrics(){
   $("dash-metrics").innerHTML=html;
 }
 
-function combined(){
+/* =================================================
+   DATA GABUNGAN
+================================================= */
+
+function combined() {
   const reports=db.reports.map(x=>({
     ...x,
     category:"report",
     displayType:x.type,
     name:x.reporter,
+    department:normalizeDept(x.department),
     findings:null
   }));
 
@@ -1496,17 +2048,23 @@ function combined(){
     ...x,
     category:"inspection",
     displayType:"Inspeksi K3",
-    name:x.inspector
+    name:x.inspector,
+    department:normalizeDept(x.department)
   }));
 
-  return [...reports,...inspections].sort((a,b)=>
-    String(b.createdAt||"").localeCompare(
-      String(a.createdAt||"")
-    )
+  return [...reports,...inspections].sort(
+    (a,b)=>
+      String(b.createdAt||"").localeCompare(
+        String(a.createdAt||"")
+      )
   );
 }
 
-function recent(){
+/* =================================================
+   AKTIVITAS TERBARU
+================================================= */
+
+function recent() {
   const items=combined().slice(0,5);
 
   $("recent").innerHTML=items.length
@@ -1514,29 +2072,47 @@ function recent(){
       <div style="
         padding:13px 0;
         border-bottom:1px solid var(--border)">
-        <strong>${escapeHTML(x.displayType)}</strong>
+
+        <strong>
+          ${escapeHTML(x.displayType)}
+        </strong>
+
         <div class="muted">
           ${escapeHTML(x.plant)} /
           ${escapeHTML(x.area)} /
           ${escapeHTML(x.department)}
         </div>
-        <small>${escapeHTML(x.date)}</small>
+
+        <small>
+          ${escapeHTML(x.date)}
+        </small>
       </div>
     `).join("")
     :'<p class="muted">Belum ada aktivitas.</p>';
 }
 
-function history(){
+/* =================================================
+   RIWAYAT DAN FILTER
+================================================= */
+
+function history() {
   const type=$("history-filter").value;
   const plant=$("history-plant").value;
-  const search=$("history-search").value.toLowerCase();
+  const dept=$("history-dept").value;
+
+  const search=$("history-search")
+    .value.toLowerCase();
 
   const items=combined().filter(x=>
     (!type||x.category===type)&&
     (!plant||x.plant===plant)&&
+    (!dept||x.department===dept)&&
     [
-      x.area,x.department,x.name,
-      x.plant,x.displayType
+      x.area,
+      x.department,
+      x.name,
+      x.plant,
+      x.displayType
     ].join(" ").toLowerCase().includes(search)
   );
 
@@ -1550,21 +2126,26 @@ function history(){
         <td>${escapeHTML(x.area)}</td>
         <td>${escapeHTML(x.department)}</td>
         <td>${escapeHTML(x.name)}</td>
+
         <td>
           ${
             x.category==="inspection"
             ?`<span class="badge ${x.findings?"bad":"good"}">
                 ${Number(x.findings)||0} temuan
               </span>`
-            :`<span class="badge">${escapeHTML(x.risk||"-")}</span>`
+            :`<span class="badge">
+                ${escapeHTML(x.risk||"-")}
+              </span>`
           }
         </td>
+
         <td>
           <button class="action"
             data-view="${escapeHTML(x.id)}"
             data-category="${x.category}">
             Lihat
           </button>
+
           <button class="action danger"
             data-delete="${escapeHTML(x.id)}"
             data-category="${x.category}">
@@ -1575,14 +2156,16 @@ function history(){
     `).join("")
     :'<tr><td colspan="8" class="empty">Belum ada data.</td></tr>';
 
-  document.querySelectorAll("[data-view]").forEach(button=>{
+  document.querySelectorAll("[data-view]")
+  .forEach(button=>{
     button.onclick=()=>viewDetail(
       button.dataset.category,
       button.dataset.view
     );
   });
 
-  document.querySelectorAll("[data-delete]").forEach(button=>{
+  document.querySelectorAll("[data-delete]")
+  .forEach(button=>{
     button.onclick=()=>removeRecord(
       button.dataset.category,
       button.dataset.delete
@@ -1590,24 +2173,30 @@ function history(){
   });
 }
 
-function viewDetail(category,recordId){
+/* =================================================
+   LIHAT DETAIL
+================================================= */
+
+function viewDetail(category,recordId) {
   const data=category==="inspection"
-    ?db.inspections:db.reports;
+    ?db.inspections
+    :db.reports;
 
   const x=data.find(item=>item.id===recordId);
-  if(!x)return;
+  if(!x) return;
 
   let lines=[];
 
-  if(category==="inspection"){
+  if(category==="inspection") {
     lines=[
       "HASIL INSPEKSI K3",
       "Tanggal: "+x.date,
       "Pemeriksa: "+x.inspector,
       "Plant: "+x.plant,
       "Area: "+x.area,
-      "Departemen: "+x.department,
+      "Departemen: "+normalizeDept(x.department),
       "Lokasi: "+(x.location||"-"),
+      "Shift: "+(x.shift||"-"),
       "",
       ...(x.checks||[]).map((q,i)=>
         (i+1)+". "+q.question+
@@ -1615,71 +2204,91 @@ function viewDetail(category,recordId){
         (q.note?"\nKeterangan: "+q.note:"")
       ),
       "",
-      "Total temuan: "+x.findings,
+      "Total Temuan: "+x.findings,
       "Kesimpulan: "+(x.summary||"-")
     ];
-  }else{
+
+  }else {
     lines=[
       "PELAPORAN K3",
       "Jenis: "+x.type,
       "Tanggal: "+x.date,
+      "Waktu: "+(x.time||"-"),
       "Pelapor: "+x.reporter,
+      "NPK: "+(x.npk||"-"),
       "Plant: "+x.plant,
       "Area: "+x.area,
-      "Departemen: "+x.department,
-      "Risiko: "+x.risk,
+      "Departemen: "+normalizeDept(x.department),
+      "Risiko: "+(x.risk||"-"),
       "",
-      "Uraian: "+x.description,
-      "Tindakan: "+(x.action||"-"),
+      "Nama Korban: "+(x.victim||"-"),
+      "Lost Workdays: "+(x.lostWorkdays??0),
+      "Jenis Bahaya/Cedera: "+(x.hazard||"-"),
+      "",
+      "Kronologi: "+x.description,
+      "Tindakan Awal: "+(x.action||"-"),
       "Rekomendasi: "+(x.recommendation||"-")
     ];
   }
 
-  /*
-    Salin detail ke clipboard atau tampilkan
-    sebagai teks agar tidak langsung hilang.
-  */
   const detail=lines.join("\n");
 
-  if(navigator.clipboard &&
-     window.isSecureContext){
+  if(navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(detail)
-      .then(()=>alert(
-        detail+"\n\nDetail juga disalin ke clipboard."
-      ))
-      .catch(()=>alert(detail));
-  }else{
+    .then(()=>{
+      alert(
+        detail+
+        "\n\nDetail juga disalin ke clipboard."
+      );
+    })
+    .catch(()=>{
+      alert(detail);
+    });
+
+  }else {
     alert(detail);
   }
 }
 
-function removeRecord(category,recordId){
+/* =================================================
+   HAPUS DATA
+================================================= */
+
+function removeRecord(category,recordId) {
   if(!confirm(
-    "Hapus data ini secara permanen dari browser?"
-  ))return;
+    "Hapus data ini dari browser secara permanen?"
+  )) return;
 
   const key=category==="inspection"
-    ?"inspections":"reports";
+    ?"inspections"
+    :"reports";
 
   const next={
     ...db,
     [key]:db[key].filter(x=>x.id!==recordId)
   };
 
-  if(persist(next))renderAll();
+  if(persist(next)) {
+    renderAll();
+  }
 }
 
 $("history-filter").onchange=history;
 $("history-plant").onchange=history;
+$("history-dept").onchange=history;
 $("history-search").oninput=history;
 
-function renderAll(){
+function renderAll() {
   metrics();
   recent();
   history();
 }
 
-function download(filename,data,mime){
+/* =================================================
+   DOWNLOAD FILE
+================================================= */
+
+function download(filename,data,mime) {
   const blob=new Blob([data],{type:mime});
   const url=URL.createObjectURL(blob);
 
@@ -1691,63 +2300,106 @@ function download(filename,data,mime){
   a.click();
   a.remove();
 
-  setTimeout(()=>URL.revokeObjectURL(url),5000);
+  setTimeout(()=>{
+    URL.revokeObjectURL(url);
+  },5000);
 }
 
-function csvSafe(value){
+function csvSafe(value) {
   let s=String(value??"");
 
-  /*
-    Menghindari formula injection saat
-    CSV dibuka di aplikasi spreadsheet.
-  */
-  if(/^\s*[=+@-]/.test(s)){
+  if(/^\s*[=+@-]/.test(s)) {
     s="'"+s;
   }
 
   return '"'+s.replace(/"/g,'""')+'"';
 }
 
+/* =================================================
+   EKSPOR CSV
+================================================= */
+
 $("export-csv").onclick=()=>{
   const headers=[
-    "Jenis Data","ID","Tanggal",
-    "Jenis Laporan","Plant","Area",
-    "Departemen","Nama","Risiko",
-    "Jumlah Temuan","Detail"
+    "Jenis Data",
+    "ID",
+    "Tanggal",
+    "Waktu",
+    "Jenis Laporan",
+    "Plant",
+    "Area",
+    "Departemen",
+    "Nama Pelapor/Pemeriksa",
+    "NPK",
+    "Nama Korban",
+    "Lost Workdays",
+    "Jenis Bahaya/Cedera",
+    "Tingkat Risiko",
+    "Jumlah Temuan",
+    "Kronologi",
+    "Tindakan Awal",
+    "Rekomendasi",
+    "Detail Checklist"
   ];
 
   const rows=[
     ...db.reports.map(x=>[
       "Pelaporan K3",
-      x.id,x.date,x.type,x.plant,x.area,
-      x.department,x.reporter,x.risk,
-      "",JSON.stringify({
-        description:x.description,
-        action:x.action,
-        recommendation:x.recommendation
-      })
+      x.id,
+      x.date,
+      x.time||"",
+      x.type,
+      x.plant,
+      x.area,
+      normalizeDept(x.department),
+      x.reporter,
+      x.npk||"",
+      x.victim||"",
+      x.lostWorkdays??0,
+      x.hazard||"",
+      x.risk,
+      "",
+      x.description,
+      x.action,
+      x.recommendation||"",
+      ""
     ]),
 
     ...db.inspections.map(x=>[
       "Inspeksi K3",
-      x.id,x.date,"Inspeksi Area",
-      x.plant,x.area,x.department,x.inspector,
-      "",x.findings,JSON.stringify({
-        location:x.location,
-        checks:x.checks,
-        summary:x.summary
-      })
+      x.id,
+      x.date,
+      "",
+      "Inspeksi Area",
+      x.plant,
+      x.area,
+      normalizeDept(x.department),
+      x.inspector,
+      "",
+      "",
+      "",
+      "",
+      "",
+      x.findings,
+      "",
+      "",
+      x.summary||"",
+      JSON.stringify(x.checks||[])
     ])
   ];
 
-  if(!rows.length){
-    alert("Belum ada data untuk diekspor.");
+  if(!rows.length) {
+    alert(
+      "Belum ada data untuk diekspor."
+    );
     return;
   }
 
   const content="\ufeff"+
     [headers,...rows]
-      .map(row=>row.map(csvSafe).join(";"))
+      .map(row=>
+        row.map(csvSafe).join(";")
+      )
       .join("\r\n");
 
   download(
@@ -1757,12 +2409,16 @@ $("export-csv").onclick=()=>{
   );
 };
 
+/* =================================================
+   BACKUP JSON
+================================================= */
+
 $("backup-json").onclick=()=>{
   download(
     "SOPRA_Safety_Report_Backup_"+today()+".json",
     JSON.stringify({
       application:"SOPRA SAFETY REPORT AREA",
-      version:1,
+      version:2,
       exportedAt:new Date().toISOString(),
       ...db
     },null,2),
@@ -1770,92 +2426,141 @@ $("backup-json").onclick=()=>{
   );
 };
 
+/* =================================================
+   IMPOR BACKUP
+================================================= */
+
 $("import-json").onclick=()=>{
   $("import-file").click();
 };
 
 $("import-file").onchange=async event=>{
   const file=event.target.files?.[0];
-  if(!file)return;
+  if(!file) return;
 
-  try{
-    if(file.size>15*1024*1024){
-      throw Error("File backup terlalu besar.");
+  try {
+    if(file.size>15*1024*1024) {
+      throw Error(
+        "File backup terlalu besar."
+      );
     }
 
-    const data=JSON.parse(await file.text());
+    const data=JSON.parse(
+      await file.text()
+    );
 
     if(
       data.application!=="SOPRA SAFETY REPORT AREA"||
       !Array.isArray(data.reports)||
       !Array.isArray(data.inspections)
-    ){
+    ) {
       throw Error(
-        "Format backup tidak sesuai versi ini."
+        "Format backup tidak sesuai."
       );
     }
 
     if(
       data.reports.length>20000||
       data.inspections.length>20000
-    ){
-      throw Error("Jumlah data tidak valid.");
+    ) {
+      throw Error(
+        "Jumlah data melebihi batas."
+      );
     }
 
     if(
       data.reports.some(x=>
-        !x||typeof x.id!=="string"||
+        !x||
+        typeof x.id!=="string"||
         typeof x.type!=="string"||
         typeof x.date!=="string"
       )||
       data.inspections.some(x=>
-        !x||typeof x.id!=="string"||
+        !x||
+        typeof x.id!=="string"||
         !Array.isArray(x.checks)||
         typeof x.date!=="string"
       )
-    ){
-      throw Error("Terdapat data yang tidak valid.");
+    ) {
+      throw Error(
+        "Terdapat data yang tidak valid."
+      );
     }
 
     if(!confirm(
       "Impor backup? Data dengan ID sama akan diperbarui."
-    ))return;
+    )) return;
 
-    const r=new Map(
+    const reportsMap=new Map(
       db.reports.map(x=>[x.id,x])
     );
-    const i=new Map(
+
+    const inspectionsMap=new Map(
       db.inspections.map(x=>[x.id,x])
     );
 
-    data.reports.forEach(x=>r.set(x.id,x));
-    data.inspections.forEach(x=>i.set(x.id,x));
+    data.reports.forEach(x=>{
+      reportsMap.set(x.id,{
+        ...x,
+        department:normalizeDept(x.department)
+      });
+    });
+
+    data.inspections.forEach(x=>{
+      inspectionsMap.set(x.id,{
+        ...x,
+        department:normalizeDept(x.department)
+      });
+    });
 
     if(persist({
-      reports:[...r.values()],
-      inspections:[...i.values()]
-    })){
+      reports:[...reportsMap.values()],
+      inspections:[...inspectionsMap.values()]
+    })) {
       renderAll();
-      alert("Backup berhasil diimpor.");
+
+      alert(
+        "Backup berhasil diimpor."
+      );
     }
 
-  }catch(error){
-    alert("Gagal impor: "+error.message);
-  }finally{
+  }catch(error) {
+    alert(
+      "Gagal impor: "+error.message
+    );
+
+  }finally {
     event.target.value="";
   }
 };
+
+/* =================================================
+   CETAK DASHBOARD
+================================================= */
 
 $("print-data").onclick=()=>{
   go("dashboard");
   window.print();
 };
 
+/* =================================================
+   INISIALISASI
+================================================= */
+
 load();
+
+$("report-form")
+.elements.namedItem("date").value=today();
+
+$("inspection-form")
+.elements.namedItem("date").value=today();
+
+updateLostWorkdays();
 renderAll();
 go("home");
 
 })();
 </script>
+
 </body>
 </html>
